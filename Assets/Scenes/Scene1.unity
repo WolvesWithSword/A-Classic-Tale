@@ -134,6 +134,7 @@ GameObject:
   - component: {fileID: 317860086}
   - component: {fileID: 317860088}
   - component: {fileID: 317860087}
+  - component: {fileID: 317860089}
   m_Layer: 0
   m_Name: Zombie Body
   m_TagString: Untagged
@@ -168,7 +169,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86770dcd39ab8b44a990173fbb0fda09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.2
+  speed: 3
+  animator: {fileID: 317860089}
 --- !u!212 &317860088
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -221,6 +223,26 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &317860089
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 317860085}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e7b095593c1bbcf468c7000c2c1b2716, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &391541775
 GameObject:
   m_ObjectHideFlags: 0
@@ -232,6 +254,7 @@ GameObject:
   - component: {fileID: 391541777}
   - component: {fileID: 391541776}
   - component: {fileID: 391541778}
+  - component: {fileID: 391541779}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -304,7 +327,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &391541778
 MonoBehaviour:
@@ -320,6 +343,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 0.2
   obstacles: {fileID: 1362561988}
+  animator: {fileID: 391541779}
+--- !u!95 &391541779
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 391541775}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 37683fef93bec82499280bc1c78572da, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -3187,7 +3231,7 @@ Transform:
   - {fileID: 317860086}
   - {fileID: 2110397516}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2110397515
 GameObject:

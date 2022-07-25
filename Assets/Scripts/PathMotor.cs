@@ -6,6 +6,7 @@ public class PathMotor : MonoBehaviour
 {
     public float speed = 0.2f;
     private PathFlags pathFlags;
+    public Animator animator;
 
     private int flagIndex = 0;
 
@@ -16,10 +17,14 @@ public class PathMotor : MonoBehaviour
 
     void Update()
     {
+        Vector3 flagPosition = pathFlags.flags[flagIndex].position;
+        transform.position = Vector2.MoveTowards(transform.position, flagPosition, speed * Time.deltaTime);
+        Vector3 direction = (transform.position - flagPosition).normalized;
 
-        transform.position = Vector2.MoveTowards(transform.position, pathFlags.flags[flagIndex].position, speed * Time.deltaTime);
+        animator.SetFloat("Horizontal", -direction.x);
+        animator.SetFloat("Vertical", -direction.y);
 
-        if(Vector2.Distance(transform.position, pathFlags.flags[flagIndex].position) < 0.05f)
+        if (Vector2.Distance(transform.position, flagPosition) < 0.05f)
         {
             flagIndex++;
 

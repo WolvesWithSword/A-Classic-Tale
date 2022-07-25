@@ -9,6 +9,8 @@ public class PlayerMotor : MonoBehaviour
 	public float moveSpeed = 0.2f;
 	public Tilemap obstacles;
 
+	public Animator animator;
+
 	private Vector2 movement;
 	private Vector3 moveToPosition;
 
@@ -34,7 +36,10 @@ public class PlayerMotor : MonoBehaviour
 			moveToPosition = transform.position + new Vector3(movement.x, movement.y, 0); // +- 1
 			Vector3Int obstaclesMap = obstacles.WorldToCell(moveToPosition);
 
-			if(obstacles.GetTile(obstaclesMap) == null)
+			animator.SetFloat("Horizontal", movement.x);
+			animator.SetFloat("Vertical", movement.y);
+
+			if (obstacles.GetTile(obstaclesMap) == null)// Detect walls or obstacles
 			{
 				StartCoroutine(MovePlayer(moveToPosition));
 			}
