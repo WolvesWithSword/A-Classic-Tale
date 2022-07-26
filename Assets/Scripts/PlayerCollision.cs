@@ -16,7 +16,7 @@ public class PlayerCollision : MonoBehaviour
         if(collided.tag == "Ennemy")
         {
             playerMotor.StopMoving();
-            GameManager.Instance.RespawnPlayer();
+            GameManager.Instance.PlayerDie();
         }
     }
 }

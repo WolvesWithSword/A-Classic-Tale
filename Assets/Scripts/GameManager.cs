@@ -18,9 +18,12 @@ public class GameManager : MonoBehaviour
     public GameObject player;
     public GameObject spawnPoint;
 
+    private HealthManager healthManager;
+
     // Start is called before the first frame update
     void Start()
     {
+        healthManager = GetComponentInParent<HealthManager>();
         RespawnPlayer();
     }
 
@@ -33,5 +36,11 @@ public class GameManager : MonoBehaviour
     public void RespawnPlayer()
     {
         player.transform.position = spawnPoint.transform.position;
+    }
+
+    public void PlayerDie()
+    {
+        healthManager.health -= 1;
+        RespawnPlayer();
     }
 }
