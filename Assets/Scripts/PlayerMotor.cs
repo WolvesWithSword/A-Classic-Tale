@@ -57,4 +57,10 @@ public class PlayerMotor : MonoBehaviour
 		transform.position = targetPos;
 		isMoving = false;
 	}
+
+	public void StopMoving()
+    {
+		isMoving = false;
+		StopAllCoroutines();
+	}
 }
