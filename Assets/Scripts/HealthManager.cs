@@ -11,9 +11,14 @@ public class HealthManager : MonoBehaviour
 
     private void Update()
     {
+        
+    }
+
+    private void UpdateHealth()
+    {
         for (int i = 0; i < heartImages.Length; i++)
         {
-            if(i < health)
+            if (i < health)
             {
                 heartImages[i].enabled = true;
             }
@@ -22,5 +27,11 @@ public class HealthManager : MonoBehaviour
                 heartImages[i].enabled = false;
             }
         }
+    }
+
+    public void TakeDamage()
+    {
+        health -= 1;
+        UpdateHealth();
     }
 }

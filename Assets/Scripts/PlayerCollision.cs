@@ -4,19 +4,19 @@ using UnityEngine;
 
 public class PlayerCollision : MonoBehaviour
 {
-    PlayerMotor playerMotor;
+	PlayerMotor playerMotor;
 
-    private void Start()
-    {
-        playerMotor = this.gameObject.GetComponent<PlayerMotor>();
-    }
+	private void Start()
+	{
+		playerMotor = this.gameObject.GetComponent<PlayerMotor>();
+	}
 
-    private void OnTriggerEnter2D(Collider2D collided)
-    {
-        if(collided.tag == "Ennemy")
-        {
-            playerMotor.StopMoving();
-            GameManager.Instance.PlayerDie();
-        }
-    }
+	private void OnTriggerEnter2D(Collider2D collided)
+	{
+		if (collided.tag == "Ennemy")
+		{
+			playerMotor.StopMoving();
+			GameManager.Instance.PlayerDie();
+		}
+	}
 }

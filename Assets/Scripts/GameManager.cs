@@ -17,13 +17,16 @@ public class GameManager : MonoBehaviour
 
     public GameObject player;
     public GameObject spawnPoint;
+    public RestartScreen restartScreen;
 
     private HealthManager healthManager;
+    private bool canInteract = true;
 
     // Start is called before the first frame update
     void Start()
     {
         healthManager = GetComponentInParent<HealthManager>();
+        restartScreen.onRestart = OnRestart;
         RespawnPlayer();
     }
 
@@ -35,12 +38,23 @@ public class GameManager : MonoBehaviour
 
     public void RespawnPlayer()
     {
+        canInteract = true;
         player.transform.position = spawnPoint.transform.position;
     }
 
     public void PlayerDie()
     {
-        healthManager.health -= 1;
+        if (canInteract)
+        {
+            healthManager.TakeDamage();
+            restartScreen.Show(true);
+            canInteract = false;
+        }
+    }
+
+    public void OnRestart()
+    {
+        restartScreen.Show(false);
         RespawnPlayer();
     }
 }
