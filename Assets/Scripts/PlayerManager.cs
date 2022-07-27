@@ -25,8 +25,7 @@ public class PlayerManager : MonoBehaviour
 
 	public void PlayerDie()
 	{
-		playerMotor.StopMoving();
-		playerMotor.CanMove(false);
+		playerMotor.Die();
 		playerStats.TakeDamage();
 		GameManager.Instance.ShowRestartScreen();
 		canInteract = false;
@@ -35,6 +34,6 @@ public class PlayerManager : MonoBehaviour
 	public void PlayerRevive()
     {
 		canInteract = true;
-		playerMotor.CanMove(true);
+		playerMotor.Revive();
 	}
 }

@@ -63,14 +63,22 @@ public class PlayerMotor : MonoBehaviour
 		isMoving = false;
 	}
 
+	public void Die()
+    {
+		animator.SetBool("Dead", true);
+		StopMoving();
+		canMove = false;
+	}
+
+	public void Revive()
+    {
+		canMove = true;
+		animator.SetBool("Dead", false);
+	}
+
 	public void StopMoving()
     {
 		isMoving = false;
 		StopAllCoroutines();
-	}
-
-	public void CanMove(bool canMove)
-    {
-		this.canMove = canMove; 
 	}
 }
