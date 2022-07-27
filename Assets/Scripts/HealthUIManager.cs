@@ -3,18 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class HealthManager : MonoBehaviour
+public class HealthUIManager : MonoBehaviour
 {
-    public int health;
 
     public Image[] heartImages;
 
-    private void Update()
-    {
-        
-    }
-
-    private void UpdateHealth()
+    public void UpdateHealth(int health)
     {
         for (int i = 0; i < heartImages.Length; i++)
         {
@@ -29,9 +23,5 @@ public class HealthManager : MonoBehaviour
         }
     }
 
-    public void TakeDamage()
-    {
-        health -= 1;
-        UpdateHealth();
-    }
+    
 }

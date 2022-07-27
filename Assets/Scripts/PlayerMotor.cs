@@ -5,24 +5,29 @@ using UnityEngine.Tilemaps;
 
 public class PlayerMotor : MonoBehaviour
 {
-	private bool isMoving;
 	public float moveSpeed = 0.2f;
 	public Tilemap obstacles;
 
-	public Animator animator;
+	private Animator animator;
 
 	private Vector2 movement;
 	private Vector3 moveToPosition;
 
+	private bool isMoving;
+	private bool canMove;
+
+
 	// Start is called before the first frame update
 	void Start()
 	{
+		canMove = true;
+		animator = this.GetComponent<Animator>();
 	}
 
 	// Update is called once per frame
 	void Update()
 	{
-        if (!isMoving)
+        if (!isMoving && canMove)
         {
 			movement.x = Input.GetAxisRaw("Horizontal");
 			movement.y = Input.GetAxisRaw("Vertical");
@@ -62,5 +67,10 @@ public class PlayerMotor : MonoBehaviour
     {
 		isMoving = false;
 		StopAllCoroutines();
+	}
+
+	public void CanMove(bool canMove)
+    {
+		this.canMove = canMove; 
 	}
 }

@@ -19,40 +19,27 @@ public class GameManager : MonoBehaviour
     public GameObject spawnPoint;
     public RestartScreen restartScreen;
 
-    private HealthManager healthManager;
-    private bool canInteract = true;
+    private PlayerManager playerManager;
 
     // Start is called before the first frame update
     void Start()
     {
-        healthManager = GetComponentInParent<HealthManager>();
-        restartScreen.onRestart = OnRestart;
+        playerManager = player.GetComponent<PlayerManager>();
         RespawnPlayer();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     public void RespawnPlayer()
     {
-        canInteract = true;
+        playerManager.PlayerRevive();
         player.transform.position = spawnPoint.transform.position;
     }
 
-    public void PlayerDie()
+    public void ShowRestartScreen()
     {
-        if (canInteract)
-        {
-            healthManager.TakeDamage();
-            restartScreen.Show(true);
-            canInteract = false;
-        }
+        restartScreen.Show(true);
     }
 
-    public void OnRestart()
+    public void RetryLevel()
     {
         restartScreen.Show(false);
         RespawnPlayer();

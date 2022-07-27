@@ -5,12 +5,7 @@ using UnityEngine;
 public class RestartScreen : MonoBehaviour
 {
     public delegate void OnRestart();
-    public OnRestart onRestart;
 
-    public void Setup(OnRestart onRestartDel)
-    {
-        onRestart = onRestartDel;
-    }
     public void Show(bool show)
     {
         this.gameObject.SetActive(show);
@@ -18,6 +13,6 @@ public class RestartScreen : MonoBehaviour
 
     public void RestartButton()
     {
-        onRestart.Invoke();
+        GameManager.Instance.RetryLevel();
     }
 }
