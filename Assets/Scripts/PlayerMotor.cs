@@ -38,6 +38,8 @@ public class PlayerMotor : MonoBehaviour
 				movement.y = 0;
 			}
 
+			if (movement.x == 0 && movement.y == 0) return;
+
 			moveToPosition = transform.position + new Vector3(movement.x, movement.y, 0); // +- 1
 			Vector3Int obstaclesMap = obstacles.WorldToCell(moveToPosition);
 
@@ -46,6 +48,7 @@ public class PlayerMotor : MonoBehaviour
 
 			if (obstacles.GetTile(obstaclesMap) == null)// Detect walls or obstacles
 			{
+				AudioManager.Instance.GrassStep();
 				StartCoroutine(MovePlayer(moveToPosition));
 			}
 		}
@@ -56,7 +59,7 @@ public class PlayerMotor : MonoBehaviour
 		isMoving = true;
         while ((targetPos - transform.position).sqrMagnitude > Mathf.Epsilon) 
         {
-			transform.position = Vector3.MoveTowards(transform.position, targetPos, moveSpeed * Time.fixedDeltaTime);
+			transform.position = Vector3.MoveTowards(transform.position, targetPos, moveSpeed * Time.deltaTime);
 			yield return null;
         }
 		transform.position = targetPos;
