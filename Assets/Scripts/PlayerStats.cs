@@ -17,4 +17,9 @@ public class PlayerStats : MonoBehaviour
         health -= 1;
         healthUIManager.UpdateHealth(health);
     }
+
+    public bool IsDead()
+    {
+        return health <= 0;
+    }
 }

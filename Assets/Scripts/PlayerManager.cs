@@ -27,8 +27,16 @@ public class PlayerManager : MonoBehaviour
 	{
 		playerMotor.Die();
 		playerStats.TakeDamage();
-		GameManager.Instance.ShowRestartScreen();
 		canInteract = false;
+
+		if (playerStats.IsDead())
+        {
+			GameManager.Instance.ShowGameOverScreen();
+		}
+        else
+        {
+			GameManager.Instance.ShowRestartScreen();
+		}
 	}
 
 	public void PlayerRevive()

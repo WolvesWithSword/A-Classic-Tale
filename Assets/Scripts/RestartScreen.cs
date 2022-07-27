@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class RestartScreen : MonoBehaviour
 {
-    public delegate void OnRestart();
-
     public void Show(bool show)
     {
         this.gameObject.SetActive(show);

@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
 public class GameManager : MonoBehaviour
 {
     private static GameManager instance;
@@ -18,6 +17,7 @@ public class GameManager : MonoBehaviour
     public GameObject player;
     public GameObject spawnPoint;
     public RestartScreen restartScreen;
+    public GameOverScreen gameOverScreen;
 
     private PlayerManager playerManager;
 
@@ -37,6 +37,11 @@ public class GameManager : MonoBehaviour
     public void ShowRestartScreen()
     {
         restartScreen.Show(true);
+    }
+
+    public void ShowGameOverScreen()
+    {
+        gameOverScreen.Show(true);
     }
 
     public void RetryLevel()
