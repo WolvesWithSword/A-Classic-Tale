@@ -9,7 +9,7 @@ public class ZombieSound : MonoBehaviour
 
     private void Start()
     {
-        interpolationPeriod = Random.Range(8, 15);
+        interpolationPeriod = Random.Range(5, 10);
     }
     void Update()
     {
