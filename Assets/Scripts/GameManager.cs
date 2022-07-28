@@ -26,6 +26,9 @@ public class GameManager : MonoBehaviour
     private GameObject spawnPoint;
     private PlayerManager playerManager;
 
+    [HideInInspector]
+    public string teleporterTag;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -37,6 +40,21 @@ public class GameManager : MonoBehaviour
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         GetComponents();
+
+        if(teleporterTag != null)
+        {
+            var teleporters = FindObjectsOfType<Teleporter>();
+            foreach (var teleporter in teleporters)
+            {
+                if (teleporter.teleporterTag == teleporterTag)
+                {
+                    spawnPoint = teleporter.spawnPoint;
+                    teleporterTag = null;
+                    RespawnPlayer();
+                }
+            }
+        }
+        RespawnPlayer();
     }
 
     private void GetComponents()

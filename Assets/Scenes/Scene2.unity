@@ -648,13 +648,18 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 698726035}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1, y: -5, z: 0}
+  m_LocalPosition: {x: 4, y: -4, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &754439780 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7338040059592396952, guid: 8632deee4b5690c46a09c7b9bf971487, type: 3}
+  m_PrefabInstance: {fileID: 1204147183}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &872570148
 GameObject:
   m_ObjectHideFlags: 0
@@ -1132,6 +1137,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2304338303445416467, guid: 8632deee4b5690c46a09c7b9bf971487, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4808632527418868576, guid: 8632deee4b5690c46a09c7b9bf971487, type: 3}
       propertyPath: m_Name
       value: TeleportationPoint
@@ -1181,8 +1190,20 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4808632527418868583, guid: 8632deee4b5690c46a09c7b9bf971487, type: 3}
+      propertyPath: nom
+      value: S2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4808632527418868583, guid: 8632deee4b5690c46a09c7b9bf971487, type: 3}
+      propertyPath: spawnPoint
+      value: 
+      objectReference: {fileID: 754439780}
+    - target: {fileID: 4808632527418868583, guid: 8632deee4b5690c46a09c7b9bf971487, type: 3}
       propertyPath: targetScene
       value: Scene1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4808632527418868583, guid: 8632deee4b5690c46a09c7b9bf971487, type: 3}
+      propertyPath: teleporterTag
+      value: 1-2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8632deee4b5690c46a09c7b9bf971487, type: 3}
@@ -2719,6 +2740,10 @@ PrefabInstance:
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 501177923792187986, guid: c614da2b06901e247bb51a7246430b11, type: 3}
+      propertyPath: health
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 501177923792187986, guid: c614da2b06901e247bb51a7246430b11, type: 3}
       propertyPath: healthUIManager
       value: 
       objectReference: {fileID: 0}
@@ -2744,7 +2769,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 501177923792187988, guid: c614da2b06901e247bb51a7246430b11, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 501177923792187988, guid: c614da2b06901e247bb51a7246430b11, type: 3}
       propertyPath: m_LocalPosition.z
@@ -5099,6 +5124,7 @@ MonoBehaviour:
   gameOverScreen: {fileID: 1870922193}
   player: {fileID: 1465670735}
   spawnPoint: {fileID: 698726035}
+  teleporterTag: 
 --- !u!4 &2103724011
 Transform:
   m_ObjectHideFlags: 0

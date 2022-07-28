@@ -18,11 +18,14 @@ public class PlayerMotor : MonoBehaviour
 
 
 	// Start is called before the first frame update
-	void Start()
+	void Awake()
+	{
+		animator = this.gameObject.GetComponent<Animator>();
+	}
+
+	private void Start()
 	{
 		canMove = true;
-		animator = this.gameObject.GetComponent<Animator>();
-		Debug.Log(animator);
 	}
 
 	// Update is called once per frame

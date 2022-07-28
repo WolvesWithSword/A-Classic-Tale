@@ -9,7 +9,7 @@ public class PlayerManager : MonoBehaviour
 
 	private bool canInteract = true; 
 
-	private void Start()
+	private void Awake()
 	{
 		playerMotor = this.gameObject.GetComponent<PlayerMotor>();
 		playerStats = this.gameObject.GetComponent<PlayerStats>();
