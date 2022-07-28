@@ -8,7 +8,7 @@ public class HealthUIManager : MonoBehaviour
 
     public Image[] heartImages;
 
-    public void UpdateHealth(int health)
+    public void UpdateHealthUI(int health)
     {
         for (int i = 0; i < heartImages.Length; i++)
         {

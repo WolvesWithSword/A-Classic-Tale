@@ -21,7 +21,8 @@ public class PlayerMotor : MonoBehaviour
 	void Start()
 	{
 		canMove = true;
-		animator = this.GetComponent<Animator>();
+		animator = this.gameObject.GetComponent<Animator>();
+		Debug.Log(animator);
 	}
 
 	// Update is called once per frame
@@ -38,13 +39,13 @@ public class PlayerMotor : MonoBehaviour
 				movement.y = 0;
 			}
 
-			if (movement.x == 0 && movement.y == 0) return;
+			animator.SetFloat("Horizontal", movement.x);
+			animator.SetFloat("Vertical", movement.y);
+
+			if (movement.x == 0 && movement.y == 0) return;// Stop the loop
 
 			moveToPosition = transform.position + new Vector3(movement.x, movement.y, 0); // +- 1
 			Vector3Int obstaclesMap = obstacles.WorldToCell(moveToPosition);
-
-			animator.SetFloat("Horizontal", movement.x);
-			animator.SetFloat("Vertical", movement.y);
 
 			if (obstacles.GetTile(obstaclesMap) == null)// Detect walls or obstacles
 			{

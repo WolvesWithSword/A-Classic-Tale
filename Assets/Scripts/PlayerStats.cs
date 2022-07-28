@@ -9,13 +9,14 @@ public class PlayerStats : MonoBehaviour
 
     private void Start()
     {
-        healthUIManager.UpdateHealth(health);
+        healthUIManager = GameObject.FindObjectOfType<HealthUIManager>();
+        healthUIManager.UpdateHealthUI(health);
     }
 
     public void TakeDamage()
     {
         health -= 1;
-        healthUIManager.UpdateHealth(health);
+        healthUIManager.UpdateHealthUI(health);
     }
 
     public bool IsDead()

@@ -7,7 +7,7 @@ public class PlayerManager : MonoBehaviour
 	PlayerMotor playerMotor;
 	PlayerStats playerStats;
 
-	private bool canInteract; 
+	private bool canInteract = true; 
 
 	private void Start()
 	{

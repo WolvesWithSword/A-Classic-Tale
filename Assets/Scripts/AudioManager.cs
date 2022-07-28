@@ -29,7 +29,7 @@ public class AudioManager : MonoBehaviour
 
     public void GrassStep()
     {
-        audioSource.PlayOneShot(grassStep, 0.5f);
+        audioSource.PlayOneShot(grassStep, 0.2f);
     }
 
     public void ZombieGrowl()
