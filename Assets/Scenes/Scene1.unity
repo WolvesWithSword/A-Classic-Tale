@@ -438,7 +438,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -337.9, y: 263.40207}
+  m_AnchoredPosition: {x: -337.9, y: 165.4831}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &541334038
@@ -764,10 +764,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55b57888daa428e43b8fb92330b698e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 391541775}
-  spawnPoint: {fileID: 1716465262}
   restartScreen: {fileID: 1263904471}
   gameOverScreen: {fileID: 20311660}
+  player: {fileID: 391541775}
+  spawnPoint: {fileID: 1716465262}
 --- !u!1 &885662285
 GameObject:
   m_ObjectHideFlags: 0
@@ -1151,7 +1151,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -373.9, y: 263.40207}
+  m_AnchoredPosition: {x: -373.9, y: 165.4831}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1254108741
@@ -2369,7 +2369,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -301.8, y: 263.40207}
+  m_AnchoredPosition: {x: -301.8, y: 165.4831}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1386700355
@@ -4667,7 +4667,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 501177923792187988, guid: c614da2b06901e247bb51a7246430b11, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -4
+      value: -5
       objectReference: {fileID: 0}
     - target: {fileID: 501177923792187988, guid: c614da2b06901e247bb51a7246430b11, type: 3}
       propertyPath: m_LocalPosition.z

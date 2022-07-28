@@ -31,7 +31,6 @@ public class GameManager : MonoBehaviour
     {
         GetComponents();
         SceneManager.sceneLoaded += OnSceneLoaded;
-        playerManager = player.GetComponent<PlayerManager>();
         RespawnPlayer();
     }
 
@@ -44,6 +43,7 @@ public class GameManager : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player");
         spawnPoint = GameObject.Find("RespawnPoint");
+        playerManager = player.GetComponent<PlayerManager>();
     }
 
     public void RespawnPlayer()
@@ -70,6 +70,7 @@ public class GameManager : MonoBehaviour
 
     public void RestartGame()
     {
+        gameOverScreen.Show(false);
         SceneManager.LoadScene("Scene1");
     }
 }
