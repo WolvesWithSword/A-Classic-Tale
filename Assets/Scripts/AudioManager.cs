@@ -10,9 +10,13 @@ public class AudioManager : MonoBehaviour
     void Awake()
     {
         if (instance != null && instance != this)
+        {
             Destroy(gameObject);// To delete previous instance if exist
-
+            return;
+        }
         instance = this;
+        DontDestroyOnLoad(gameObject);
+
     }
 
     AudioSource audioSource;

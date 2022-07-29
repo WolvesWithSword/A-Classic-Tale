@@ -4,23 +4,31 @@ using UnityEngine;
 
 public class PlayerStats : MonoBehaviour
 {
-    public int health;
-    public HealthUIManager healthUIManager;
+    [SerializeField]
+    private int health;
+    [HideInInspector]
+    public HealthUI healthUI;
 
     private void Start()
     {
-        healthUIManager = GameObject.FindObjectOfType<HealthUIManager>();
-        healthUIManager.UpdateHealthUI(health);
+        healthUI = FindObjectOfType<HealthUI>();
+        healthUI.UpdateHealthUI(health);
     }
 
     public void TakeDamage()
     {
         health -= 1;
-        healthUIManager.UpdateHealthUI(health);
+        healthUI.UpdateHealthUI(health);
     }
 
     public bool IsDead()
     {
         return health <= 0;
+    }
+
+    public void setHealth(int health)
+    {
+        this.health = health;
+        healthUI.UpdateHealthUI(health);
     }
 }

@@ -1,30 +1,64 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerManager : MonoBehaviour
 {
-	PlayerMotor playerMotor;
-	PlayerStats playerStats;
 
-	private bool canInteract = true; 
+	private static PlayerManager instance;
+	public static PlayerManager Instance { get { return instance; } } // Accessor
 
-	private void Awake()
+
+
+	void Awake()
 	{
-		playerMotor = this.gameObject.GetComponent<PlayerMotor>();
-		playerStats = this.gameObject.GetComponent<PlayerStats>();
+		if (instance != null && instance != this)
+		{
+			Destroy(gameObject);// To delete previous instance if exist
+			return;
+		}
+		instance = this;
+		DontDestroyOnLoad(gameObject);
+
+		playerStats = gameObject.GetComponent<PlayerStats>();
 	}
 
-	private void OnTriggerEnter2D(Collider2D collided)
+	public int startHealth = 3;
+
+	private GameObject player;
+	private PlayerMotor playerMotor;
+	private PlayerStats playerStats;
+	private bool canInteract = true;
+	private static bool hasLoadedScene = false;
+
+	public static bool IsReadyAsDependency()
 	{
-		if (collided.tag == "Ennemy" && canInteract)
-		{
-			PlayerDie();
-		}
+		return instance != null && hasLoadedScene;
+	}
+
+	/*private void Start()
+	{
+		Debug.Log("PM START");
+		player = GameObject.FindGameObjectWithTag("Player");
+		playerMotor = player.GetComponent<PlayerMotor>();
+		playerStats.healthUI = FindObjectOfType<HealthUI>();
+
+		playerStats.setHealth(startHealth);
+		hasLoadedScene = true;
+	}*/
+
+	public void FetchComponents()
+	{
+		player = GameObject.FindGameObjectWithTag("Player");
+		playerMotor = player.GetComponent<PlayerMotor>();
+		playerStats.healthUI = FindObjectOfType<HealthUI>();
 	}
 
 	public void PlayerDie()
 	{
+		if (!canInteract) return;
+
 		playerMotor.Die();
 		playerStats.TakeDamage();
 		canInteract = false;
@@ -43,5 +77,16 @@ public class PlayerManager : MonoBehaviour
     {
 		canInteract = true;
 		playerMotor.Revive();
+	}
+
+	public void SpawnPlayer(Vector3 spawnPos)
+	{
+		player.transform.position = spawnPos;
+	}
+
+	public void ResetPlayer()
+	{
+		canInteract = true;
+		playerStats.setHealth(startHealth);
 	}
 }

@@ -88,4 +88,13 @@ public class PlayerMotor : MonoBehaviour
 		isMoving = false;
 		StopAllCoroutines();
 	}
+
+	private void OnTriggerEnter2D(Collider2D collided)
+	{
+		if (collided.tag == "Ennemy")
+		{
+			PlayerManager.Instance.PlayerDie();
+		}
+	}
+
 }

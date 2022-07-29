@@ -21,10 +21,7 @@ public class GameManager : MonoBehaviour
     public GameOverScreen gameOverScreen;
 
     [SerializeField]
-    private GameObject player;
-    [SerializeField]
     private GameObject spawnPoint;
-    private PlayerManager playerManager;
 
     [HideInInspector]
     public string teleporterTag;
@@ -32,42 +29,38 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        GetComponents();
+        Debug.Log("GM START");
+        spawnPoint = GameObject.Find("RespawnPoint");
         SceneManager.sceneLoaded += OnSceneLoaded;
-        RespawnPlayer();
+
+        PlayerManager.Instance.FetchComponents();
+        PlayerManager.Instance.SpawnPlayer(spawnPoint.transform.position);
     }
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        GetComponents();
+        spawnPoint = GameObject.Find("RespawnPoint");
+        PlayerManager.Instance.FetchComponents();
 
-        if(teleporterTag != null)
+        if (teleporterTag != null)
         {
             var teleporters = FindObjectsOfType<Teleporter>();
             foreach (var teleporter in teleporters)
             {
                 if (teleporter.teleporterTag == teleporterTag)
                 {
-                    spawnPoint = teleporter.spawnPoint;
                     teleporterTag = null;
-                    RespawnPlayer();
+                    PlayerManager.Instance.SpawnPlayer(teleporter.spawnPoint.transform.position);
+                    return;
                 }
             }
         }
-        RespawnPlayer();
+        PlayerManager.Instance.SpawnPlayer(spawnPoint.transform.position);
     }
 
-    private void GetComponents()
+    IEnumerator WaitForSecondsWrapper(float secs)
     {
-        player = GameObject.FindGameObjectWithTag("Player");
-        spawnPoint = GameObject.Find("RespawnPoint");
-        playerManager = player.GetComponent<PlayerManager>();
-    }
-
-    public void RespawnPlayer()
-    {
-        player.transform.position = spawnPoint.transform.position;
-        playerManager.PlayerRevive();
+        yield return new WaitForSeconds(secs);
     }
 
     public void ShowRestartScreen()
@@ -83,12 +76,14 @@ public class GameManager : MonoBehaviour
     public void RetryLevel()
     {
         restartScreen.Show(false);
-        RespawnPlayer();
+        PlayerManager.Instance.SpawnPlayer(spawnPoint.transform.position);
+        PlayerManager.Instance.PlayerRevive();
     }
 
     public void RestartGame()
     {
         gameOverScreen.Show(false);
         SceneManager.LoadScene("Scene1");
+        PlayerManager.Instance.ResetPlayer();
     }
 }

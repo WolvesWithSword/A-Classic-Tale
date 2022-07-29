@@ -3,9 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class HealthUIManager : MonoBehaviour
+public class HealthUI : MonoBehaviour
 {
-
     public Image[] heartImages;
 
     public void UpdateHealthUI(int health)
