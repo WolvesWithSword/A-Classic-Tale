@@ -29,7 +29,6 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log("GM START");
         spawnPoint = GameObject.Find("RespawnPoint");
         SceneManager.sceneLoaded += OnSceneLoaded;
 
