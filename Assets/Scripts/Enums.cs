@@ -10,3 +10,11 @@ public enum EPlayerPosition {
 	DOWN,
 	DIE
 }
+
+public enum EDirection
+{
+	RIGHT,
+	LEFT,
+	UP,
+	DOWN
+}

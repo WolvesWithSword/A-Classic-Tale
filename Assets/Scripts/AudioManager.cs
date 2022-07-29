@@ -22,7 +22,9 @@ public class AudioManager : MonoBehaviour
     AudioSource audioSource;
     public AudioClip ambiantSong;
     public AudioClip grassStep;
-    public AudioClip zombieSound;
+    public AudioClip zombieGrowl;
+    public AudioClip hauntedTreeGrowl;
+    public AudioClip gameOverSong;
 
     private void Start()
     {
@@ -38,6 +40,25 @@ public class AudioManager : MonoBehaviour
 
     public void ZombieGrowl()
     {
-        audioSource.PlayOneShot(zombieSound);
+        audioSource.PlayOneShot(zombieGrowl);
+    }
+
+    public void HauntedTreeGrowl()
+    {
+        audioSource.PlayOneShot(hauntedTreeGrowl);
+    }
+
+    public void PlayGameOverSong()
+    {
+        audioSource.Stop();
+        audioSource.clip = gameOverSong;
+        audioSource.Play();
+    }
+
+    public void PlayAmbiantSong()
+    {
+        audioSource.Stop();
+        audioSource.clip = ambiantSong;
+        audioSource.Play();
     }
 }

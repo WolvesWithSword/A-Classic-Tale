@@ -65,6 +65,7 @@ public class GameManager : MonoBehaviour
     public void ShowGameOverScreen()
     {
         gameOverScreen.Show(true);
+        AudioManager.Instance.PlayGameOverSong();
     }
 
     public void RetryLevel()
@@ -72,12 +73,18 @@ public class GameManager : MonoBehaviour
         restartScreen.Show(false);
         PlayerManager.Instance.SpawnPlayer(spawnPoint.transform.position);
         PlayerManager.Instance.PlayerRevive();
+
+        foreach (RunForwardMotor motor in GameObject.FindObjectsOfType<RunForwardMotor>())
+        {
+            motor.ResetPosition();
+        }
     }
 
     public void RestartGame()
     {
         gameOverScreen.Show(false);
         SceneManager.LoadScene("Scene1");
+        AudioManager.Instance.PlayAmbiantSong();
         PlayerManager.Instance.ResetPlayer();
     }
 }
