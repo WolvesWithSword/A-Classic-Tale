@@ -9,8 +9,6 @@ public class PlayerManager : MonoBehaviour
 	private static PlayerManager instance;
 	public static PlayerManager Instance { get { return instance; } } // Accessor
 
-
-
 	void Awake()
 	{
 		if (instance != null && instance != this)
@@ -30,23 +28,11 @@ public class PlayerManager : MonoBehaviour
 	private PlayerMotor playerMotor;
 	private PlayerStats playerStats;
 	private bool canInteract = true;
-	private static bool hasLoadedScene = false;
 
-	public static bool IsReadyAsDependency()
+	private void Start()
 	{
-		return instance != null && hasLoadedScene;
-	}
-
-	/*private void Start()
-	{
-		Debug.Log("PM START");
-		player = GameObject.FindGameObjectWithTag("Player");
-		playerMotor = player.GetComponent<PlayerMotor>();
-		playerStats.healthUI = FindObjectOfType<HealthUI>();
-
 		playerStats.setHealth(startHealth);
-		hasLoadedScene = true;
-	}*/
+	}
 
 	public void FetchComponents()
 	{
@@ -79,9 +65,10 @@ public class PlayerManager : MonoBehaviour
 		playerMotor.Revive();
 	}
 
-	public void SpawnPlayer(Vector3 spawnPos)
+	public void SpawnPlayer(Vector3 spawnPos, EPlayerPosition playerPosition = EPlayerPosition.LIE)
 	{
 		player.transform.position = spawnPos;
+		playerMotor.SetPlayerPosition(playerPosition);
 	}
 
 	public void ResetPlayer()

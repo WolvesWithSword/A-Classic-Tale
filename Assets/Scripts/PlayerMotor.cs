@@ -89,6 +89,33 @@ public class PlayerMotor : MonoBehaviour
 		StopAllCoroutines();
 	}
 
+	public void SetPlayerPosition(EPlayerPosition playerPos)
+	{
+		switch (playerPos)
+		{
+			case EPlayerPosition.LIE:
+				animator.Play("BaseLayer.Player_lie");
+				break;
+			case EPlayerPosition.RIGHT:
+				animator.Play("BaseLayer.Player_walk_right");
+				break;
+			case EPlayerPosition.LEFT:
+				animator.Play("BaseLayer.Player_walk_left");
+				break;
+			case EPlayerPosition.UP:
+				animator.Play("BaseLayer.Player_walk_up");
+				break;
+			case EPlayerPosition.DOWN:
+				animator.Play("BaseLayer.Player_walk_down");
+				break;
+			case EPlayerPosition.DIE:
+				animator.Play("BaseLayer.Player_die");
+				break;
+			default:
+				break;
+		}
+	}
+
 	private void OnTriggerEnter2D(Collider2D collided)
 	{
 		if (collided.tag == "Ennemy")

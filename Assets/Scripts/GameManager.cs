@@ -50,17 +50,12 @@ public class GameManager : MonoBehaviour
                 if (teleporter.teleporterTag == teleporterTag)
                 {
                     teleporterTag = null;
-                    PlayerManager.Instance.SpawnPlayer(teleporter.spawnPoint.transform.position);
+                    PlayerManager.Instance.SpawnPlayer(teleporter.spawnPoint.transform.position, teleporter.enterPosition);
                     return;
                 }
             }
         }
         PlayerManager.Instance.SpawnPlayer(spawnPoint.transform.position);
-    }
-
-    IEnumerator WaitForSecondsWrapper(float secs)
-    {
-        yield return new WaitForSeconds(secs);
     }
 
     public void ShowRestartScreen()

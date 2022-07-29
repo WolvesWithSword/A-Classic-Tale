@@ -1530,6 +1530,10 @@ PrefabInstance:
       value: Scene1
       objectReference: {fileID: 0}
     - target: {fileID: 4808632527418868583, guid: 8632deee4b5690c46a09c7b9bf971487, type: 3}
+      propertyPath: enterPosition
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4808632527418868583, guid: 8632deee4b5690c46a09c7b9bf971487, type: 3}
       propertyPath: teleporterTag
       value: 1-2
       objectReference: {fileID: 0}
