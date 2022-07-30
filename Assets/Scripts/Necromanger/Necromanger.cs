@@ -71,6 +71,7 @@ public class Necromanger : MonoBehaviour
         {
             time = 0;
             pattern.CleanPattern(phase);
+            StopAllCoroutines();
             havePatternRunning = false;
             phase++;
         }
