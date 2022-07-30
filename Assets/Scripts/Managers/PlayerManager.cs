@@ -28,6 +28,8 @@ public class PlayerManager : MonoBehaviour
 	public PlayerStats playerStats;
 	private bool canInteract = true;
 
+	public bool invicible = false;
+
 	private void Start()
 	{
 		playerStats.ResetHealth();
@@ -42,7 +44,7 @@ public class PlayerManager : MonoBehaviour
 
 	public void PlayerDie()
 	{
-		if (!canInteract) return;// Invicibility when die
+		if (!canInteract || invicible) return;// Invicibility when die
 
 		playerMotor.Die();
 		playerStats.TakeDamage();
