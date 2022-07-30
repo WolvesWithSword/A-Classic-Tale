@@ -26,11 +26,11 @@ public class PathMotor : MonoBehaviour
 
         if (Vector2.Distance(transform.position, flagPosition) < 0.05f)
         {
-            flagIndex++;
+            flagIndex++;// Move to next position
 
             if(flagIndex > pathFlags.flags.Length -1)
             {
-                flagIndex = 0;
+                flagIndex = 0;// Loop
             }
         }
     }

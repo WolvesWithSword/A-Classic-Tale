@@ -25,9 +25,9 @@ public class RunForwardMotor : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!hasRun)
+        if (!hasRun)// No move anymore
         {
-            if (runIntoPlayer)
+            if (runIntoPlayer)// When ennemy have seen the player
             {
                 transform.position = Vector2.MoveTowards(transform.position, stopPoint.position, speed * Time.deltaTime);
                 if (Vector2.Distance(transform.position, stopPoint.position) < 0.05f)
@@ -46,6 +46,8 @@ public class RunForwardMotor : MonoBehaviour
 
     private void DetectPlayer(EDirection direction)
     {
+        if (!CanSeePlayer()) return;// No need to go further if can't see player
+
         Vector3Int playerCell = baseTilemap.WorldToCell(player.transform.position);
         Vector3Int myCell = baseTilemap.WorldToCell(transform.position);
 
@@ -72,11 +74,22 @@ public class RunForwardMotor : MonoBehaviour
         }
     }
     
-    public void RunIntoPlayer()
+    private void RunIntoPlayer()
     {
         AudioManager.Instance.HauntedTreeGrowl();
         runIntoPlayer = true;
     }
+
+    private bool CanSeePlayer()
+    {
+        float playerDist = Vector3.Distance(player.transform.position, transform.position);
+        // Stop point is like vision range of the ennemy
+        float visionRange = Vector3.Distance(stopPoint.position, transform.position);
+
+        if (playerDist <= visionRange) return true;
+        return false;
+    }
+
     public void ResetPosition()
     {
         transform.position = startPosition;

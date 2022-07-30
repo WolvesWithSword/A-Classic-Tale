@@ -5,8 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class PlayerManager : MonoBehaviour
 {
-
-	private static PlayerManager instance;
+    #region SINGLETON
+    private static PlayerManager instance;
 	public static PlayerManager Instance { get { return instance; } } // Accessor
 
 	void Awake()
@@ -17,12 +17,13 @@ public class PlayerManager : MonoBehaviour
 			return;
 		}
 		instance = this;
-		DontDestroyOnLoad(gameObject);
+		DontDestroyOnLoad(gameObject);// Stay between scene
 
-		playerStats = gameObject.GetComponent<PlayerStats>();
+		playerStats = gameObject.GetComponent<PlayerStats>();// Get sibling component
 	}
+    #endregion
 
-	public int startHealth = 3;
+    public int startHealth = 3;
 
 	private GameObject player;
 	private PlayerMotor playerMotor;
@@ -43,7 +44,7 @@ public class PlayerManager : MonoBehaviour
 
 	public void PlayerDie()
 	{
-		if (!canInteract) return;
+		if (!canInteract) return;// Invicibility when die
 
 		playerMotor.Die();
 		playerStats.TakeDamage();

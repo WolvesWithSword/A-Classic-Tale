@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
+    #region SINGLETON
     private static GameManager instance;
     public static GameManager Instance { get { return instance; }} // Accessor
 
@@ -15,33 +16,33 @@ public class GameManager : MonoBehaviour
             return;
         }
         instance = this;
-        DontDestroyOnLoad(gameObject);
+        DontDestroyOnLoad(gameObject);// Stay between scene
     }
+    #endregion
+
     public RestartScreen restartScreen;
     public GameOverScreen gameOverScreen;
 
-    [SerializeField]
     private GameObject spawnPoint;
 
     [HideInInspector]
-    public string teleporterTag;
+    public string teleporterTag;//To do link between teleporter and map
 
-    // Start is called before the first frame update
     void Start()
     {
         spawnPoint = GameObject.Find("RespawnPoint");
         SceneManager.sceneLoaded += OnSceneLoaded;
 
-        PlayerManager.Instance.FetchComponents();
+        PlayerManager.Instance.FetchComponents();// Need to update PlayerManager
         PlayerManager.Instance.SpawnPlayer(spawnPoint.transform.position);
     }
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         spawnPoint = GameObject.Find("RespawnPoint");
-        PlayerManager.Instance.FetchComponents();
+        PlayerManager.Instance.FetchComponents();// Need to update PlayerManager
 
-        if (teleporterTag != null)
+        if (teleporterTag != null) // If player take teleporter then teleport
         {
             var teleporters = FindObjectsOfType<Teleporter>();
             foreach (var teleporter in teleporters)
@@ -54,6 +55,7 @@ public class GameManager : MonoBehaviour
                 }
             }
         }
+        // Restart of the game, teleport to spawn point
         PlayerManager.Instance.SpawnPlayer(spawnPoint.transform.position);
     }
 
@@ -71,10 +73,10 @@ public class GameManager : MonoBehaviour
     public void RetryLevel()
     {
         restartScreen.Show(false);
-        PlayerManager.Instance.SpawnPlayer(spawnPoint.transform.position);
+        PlayerManager.Instance.SpawnPlayer(spawnPoint.transform.position);// Teleport to spawn point
         PlayerManager.Instance.PlayerRevive();
 
-        foreach (RunForwardMotor motor in GameObject.FindObjectsOfType<RunForwardMotor>())
+        foreach (RunForwardMotor motor in FindObjectsOfType<RunForwardMotor>()) // Need to reset moved ennemy
         {
             motor.ResetPosition();
         }
@@ -83,7 +85,7 @@ public class GameManager : MonoBehaviour
     public void RestartGame()
     {
         gameOverScreen.Show(false);
-        SceneManager.LoadScene("Scene1");
+        SceneManager.LoadScene("Scene1");// Back to last check point
         AudioManager.Instance.PlayAmbiantSong();
         PlayerManager.Instance.ResetPlayer();
     }

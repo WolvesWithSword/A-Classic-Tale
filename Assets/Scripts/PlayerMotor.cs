@@ -66,14 +66,14 @@ public class PlayerMotor : MonoBehaviour
 			transform.position = Vector3.MoveTowards(transform.position, targetPos, moveSpeed * Time.deltaTime);
 			yield return null;
         }
-		transform.position = targetPos;
+		transform.position = targetPos;// To be sure
 		isMoving = false;
 	}
 
 	public void Die()
     {
 		animator.SetBool("Dead", true);
-		StopMoving();
+		StopMoving();// To not teleport player if coroutine continue
 		canMove = false;
 	}
 

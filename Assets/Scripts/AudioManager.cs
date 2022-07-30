@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class AudioManager : MonoBehaviour
 {
+    #region SINGLETON
     private static AudioManager instance;
     public static AudioManager Instance { get { return instance; } } // Accessor
 
@@ -15,9 +16,9 @@ public class AudioManager : MonoBehaviour
             return;
         }
         instance = this;
-        DontDestroyOnLoad(gameObject);
-
+        DontDestroyOnLoad(gameObject); // Stay between scenes
     }
+    #endregion
 
     AudioSource audioSource;
     public AudioClip ambiantSong;

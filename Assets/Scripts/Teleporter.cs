@@ -14,7 +14,7 @@ public class Teleporter : MonoBehaviour
 	{
 		if (collided.tag == "Player")
 		{
-			GameManager.Instance.teleporterTag = teleporterTag;
+			GameManager.Instance.teleporterTag = teleporterTag;// For next level teleportation
 			SceneManager.LoadScene(targetScene);
 		}
 	}
