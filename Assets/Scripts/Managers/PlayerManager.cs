@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class PlayerManager : MonoBehaviour
 {
@@ -23,16 +22,15 @@ public class PlayerManager : MonoBehaviour
 	}
     #endregion
 
-    public int startHealth = 3;
-
 	private GameObject player;
 	private PlayerMotor playerMotor;
-	private PlayerStats playerStats;
+	[HideInInspector]
+	public PlayerStats playerStats;
 	private bool canInteract = true;
 
 	private void Start()
 	{
-		playerStats.setHealth(startHealth);
+		playerStats.ResetHealth();
 	}
 
 	public void FetchComponents()
@@ -75,6 +73,11 @@ public class PlayerManager : MonoBehaviour
 	public void ResetPlayer()
 	{
 		canInteract = true;
-		playerStats.setHealth(startHealth);
+		playerStats.ResetHealth();
 	}
+
+	public void PlayerPickupHeart(int healthAmount)
+    {
+		playerStats.RestoreHealth(healthAmount);
+    }
 }

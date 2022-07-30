@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Singleton : MonoBehaviour // Use for parent gameobject with singleton childs
+public class Canvas : MonoBehaviour // Use for parent gameobject with singleton childs
 {
-    private static Singleton instance;
-    public static Singleton Instance { get { return instance; } } // Accessor
+    private static Canvas instance;
+    public static Canvas Instance { get { return instance; } } // Accessor
 
     void Awake()
     {

@@ -15,8 +15,8 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);// To delete previous instance if exist
             return;
         }
+        DontDestroyOnLoad(gameObject);
         instance = this;
-        DontDestroyOnLoad(gameObject);// Stay between scene
     }
     #endregion
 
@@ -85,7 +85,7 @@ public class GameManager : MonoBehaviour
     public void RestartGame()
     {
         gameOverScreen.Show(false);
-        SceneManager.LoadScene("Scene1");// Back to last check point
+        SceneManager.LoadScene("Forest - Scene1");// Back to last check point
         AudioManager.Instance.PlayAmbiantSong();
         PlayerManager.Instance.ResetPlayer();
     }

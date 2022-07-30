@@ -86,7 +86,7 @@ public class RunForwardMotor : MonoBehaviour
         // Stop point is like vision range of the ennemy
         float visionRange = Vector3.Distance(stopPoint.position, transform.position);
 
-        if (playerDist <= visionRange) return true;
+        if (playerDist - visionRange <= 0.05f) return true;
         return false;
     }
 

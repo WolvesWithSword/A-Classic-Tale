@@ -16,7 +16,7 @@ public class AudioManager : MonoBehaviour
             return;
         }
         instance = this;
-        DontDestroyOnLoad(gameObject); // Stay between scenes
+        DontDestroyOnLoad(gameObject);
     }
     #endregion
 
