@@ -36,14 +36,14 @@ public class Necromanger : MonoBehaviour
         }*/
         if (phase > 3)
         {
-            int choice = 2;//Random.Range(1, 4);
+            int choice = Random.Range(1, 4);
             switch (choice)
             {
                 case 1:
                     RunPhase(zombieCirclePattern, 3f);
                     break;
                 case 2:
-                    RunPhase(zombieSpiralPattern, 10f);
+                    RunPhase(zombieSpiralPattern, 3f);
                     break;
                 case 3:
                     RunPhase(zombieSlalomPattern, 3f);
