@@ -94,7 +94,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 257413533692966416, guid: 029c0f7048a9da9429e39822c842bbf7, type: 3}
       propertyPath: loop
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 257413533760207387, guid: 029c0f7048a9da9429e39822c842bbf7, type: 3}
       propertyPath: m_RootOrder
@@ -142,7 +142,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 257413533760207388, guid: 029c0f7048a9da9429e39822c842bbf7, type: 3}
       propertyPath: m_Name
-      value: Zombie
+      value: Zombie With Start
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 029c0f7048a9da9429e39822c842bbf7, type: 3}

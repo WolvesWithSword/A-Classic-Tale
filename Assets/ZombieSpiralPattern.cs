@@ -13,7 +13,7 @@ public class ZombieSpiralPattern : MonoBehaviour
         for (int i = 0; i < numberOfInvocation; i++)
         {
             InvokeZombie(zombiePrefab);
-            yield return new WaitForSeconds(2);
+            yield return new WaitForSeconds(2f);
         }
     }
 
