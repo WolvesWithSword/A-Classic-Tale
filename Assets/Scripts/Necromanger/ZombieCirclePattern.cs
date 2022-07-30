@@ -8,7 +8,7 @@ public class ZombieCirclePattern : IZombiePattern
     public GameObject[] circle2;
     public GameObject[] circle1;
 
-    public override IEnumerator RunPattern()
+    public override IEnumerator RunPattern(int phase)
     {
         foreach (GameObject zombie in circle3)
         {

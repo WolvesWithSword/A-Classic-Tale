@@ -43,7 +43,7 @@ public class Necromanger : MonoBehaviour
                     RunPhase(zombieCirclePattern, 3f);
                     break;
                 case 2:
-                    RunPhase(zombieSpiralPattern, 5f);
+                    RunPhase(zombieSpiralPattern, 10f);
                     break;
                 case 3:
                     RunPhase(zombieSlalomPattern, 3f);
@@ -63,14 +63,14 @@ public class Necromanger : MonoBehaviour
             {
                 (pattern as ZombieGeneratorPattern).StopInvoking = false;
             }
-            StartCoroutine(pattern.RunPattern());
+            StartCoroutine(pattern.RunPattern(phase));
             havePatternRunning = true;
         }
         time += Time.deltaTime;
         if (time >= runningTime)
         {
             time = 0;
-            pattern.CleanPattern();
+            pattern.CleanPattern(phase);
             havePatternRunning = false;
             phase++;
         }
