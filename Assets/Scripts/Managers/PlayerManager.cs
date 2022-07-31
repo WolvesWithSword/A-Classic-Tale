@@ -24,11 +24,13 @@ public class PlayerManager : MonoBehaviour
 
 	private GameObject player;
 	private PlayerMotor playerMotor;
+	private PlayerAppearance playerAppearance;
 	[HideInInspector]
 	public PlayerStats playerStats;
 	private bool canInteract = true;
 
 	public bool invicible = false;
+	public float invicibleTime = 3f;
 
 	private void Start()
 	{
@@ -38,6 +40,7 @@ public class PlayerManager : MonoBehaviour
 	public void FetchComponents()
 	{
 		player = GameObject.FindGameObjectWithTag("Player");
+		playerAppearance = player.GetComponent<PlayerAppearance>();
 		playerMotor = player.GetComponent<PlayerMotor>();
 		playerStats.healthUI = FindObjectOfType<HealthUI>();
 	}
@@ -46,18 +49,34 @@ public class PlayerManager : MonoBehaviour
 	{
 		if (!canInteract || invicible) return;// Invicibility when die
 
-		playerMotor.Die();
+		if (GameManager.Instance.isInBossFight)
+		{
+			StartCoroutine(TakeDamageInBossFight());
+		}
+		else
+		{
+			playerMotor.Die();
+			canInteract = false;
+		}
 		playerStats.TakeDamage();
-		canInteract = false;
 
 		if (playerStats.IsDead())
-        {
+		{
 			GameManager.Instance.ShowGameOverScreen();
 		}
-        else
-        {
+		else if(!GameManager.Instance.isInBossFight)
+		{
 			GameManager.Instance.ShowRestartScreen();
 		}
+	}
+
+	private IEnumerator TakeDamageInBossFight()
+	{
+		canInteract = false;
+		playerAppearance.MakePlayerFlash();
+		yield return new WaitForSeconds(invicibleTime);
+		canInteract = true;
+		playerAppearance.StopPlayerFlash();
 	}
 
 	public void PlayerRevive()

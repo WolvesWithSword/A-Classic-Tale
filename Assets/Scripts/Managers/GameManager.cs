@@ -27,9 +27,12 @@ public class GameManager : MonoBehaviour
 
     [HideInInspector]
     public string teleporterTag;//To do link between teleporter and map
+    public bool isInBossFight = false;
 
     void Start()
     {
+        isInBossFight = SceneManager.GetActiveScene().name.Contains("Boss");
+
         spawnPoint = GameObject.Find("RespawnPoint");
         SceneManager.sceneLoaded += OnSceneLoaded;
 
@@ -39,6 +42,8 @@ public class GameManager : MonoBehaviour
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
+        isInBossFight = scene.name.Contains("Boss");
+
         spawnPoint = GameObject.Find("RespawnPoint");
         PlayerManager.Instance.FetchComponents();// Need to update PlayerManager
 

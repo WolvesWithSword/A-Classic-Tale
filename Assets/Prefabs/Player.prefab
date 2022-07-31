@@ -14,8 +14,6 @@ GameObject:
   - component: {fileID: 501177923792187985}
   - component: {fileID: 501177923792187987}
   - component: {fileID: 501177923792187991}
-  - component: {fileID: 501177923792187997}
-  - component: {fileID: 501177923792187986}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -171,29 +169,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 4
   obstacles: {fileID: 0}
---- !u!114 &501177923792187997
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 501177923792187978}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 915549e3d4c7f574787524661b66b20b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &501177923792187986
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 501177923792187978}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6f48d223ac9b2c84abc3c8413aad0972, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 3
-  healthUIManager: {fileID: 0}

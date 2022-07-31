@@ -12,7 +12,7 @@ public class Necromanger : MonoBehaviour
 
     private float time = 0;
     private bool havePatternRunning = false;
-    private int phase = 4;
+    private int phase = 1;
 
     void Start()
     {
@@ -21,20 +21,20 @@ public class Necromanger : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        /*if (phase == 1)
+        if (phase == 1)
         {
-            RunPhase(zombieCirclePattern, 5f);
-        }*/
+            RunPhase(zombieCirclePattern, 25f);
+        }
 
-        /*if (phase == 2)
+        if (phase == 2)
         {
-            RunPhase(zombieSpiralPattern, 3f);
+            RunPhase(zombieSpiralPattern, 30f);
         }
 
         if (phase == 3)
         {
-            RunPhase(zombieSlalomPattern, 3f);
-        }*/
+            RunPhase(zombieSlalomPattern, 35f);
+        }
         if (phase > 3)
         {
             int choice = Random.Range(1, 4);
