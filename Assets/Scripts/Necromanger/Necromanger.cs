@@ -5,6 +5,7 @@ using UnityEngine;
 public class Necromanger : MonoBehaviour
 {
     public GameObject zombieShield;
+    public IZombiePattern currentPattern;
     public ZombieCirclePattern zombieCirclePattern;
     public ZombieGeneratorPattern zombieSpiralPattern;
     public ZombieGeneratorPattern zombieSlalomPattern;
@@ -40,13 +41,13 @@ public class Necromanger : MonoBehaviour
             switch (choice)
             {
                 case 1:
-                    RunPhase(zombieCirclePattern, 3f);
+                    RunPhase(zombieCirclePattern, 25f);
                     break;
                 case 2:
-                    RunPhase(zombieSpiralPattern, 3f);
+                    RunPhase(zombieSpiralPattern, 30f);
                     break;
                 case 3:
-                    RunPhase(zombieSlalomPattern, 3f);
+                    RunPhase(zombieSlalomPattern, 35f);
                     break;
                 default:
                     break;
@@ -65,12 +66,13 @@ public class Necromanger : MonoBehaviour
             }
             StartCoroutine(pattern.RunPattern(phase));
             havePatternRunning = true;
+            currentPattern = pattern;
         }
         time += Time.deltaTime;
         if (time >= runningTime)
         {
             time = 0;
-            pattern.CleanPattern(phase);
+            currentPattern.CleanPattern(phase);
             StopAllCoroutines();
             havePatternRunning = false;
             phase++;

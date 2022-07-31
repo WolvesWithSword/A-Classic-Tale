@@ -632,6 +632,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   zombieShield: {fileID: 388413804}
+  currentPattern: {fileID: 0}
   zombieCirclePattern: {fileID: 1698199584}
   zombieSpiralPattern: {fileID: 1267417162}
   zombieSlalomPattern: {fileID: 1454534774}
@@ -2515,7 +2516,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerStats: {fileID: 0}
-  invicible: 1
+  invicible: 0
 --- !u!4 &884602121
 Transform:
   m_ObjectHideFlags: 0
