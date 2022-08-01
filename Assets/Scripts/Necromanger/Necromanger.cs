@@ -1,35 +1,48 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public class Necromanger : MonoBehaviour, IInteractable 
 {
-    public GameObject zombieShield;
     public float phase1Time = 20f;
     public float phase2Time = 30f;
     public float phase3Time = 35f;
     public float weakTime = 5f;
     public int life = 3;
-    public Transform pushPoint;
 
+    public GameObject zombieShield;
     public ZombieCirclePattern zombieCirclePattern;
     public ZombieGeneratorPattern zombieSpiralPattern;
     public ZombieGeneratorPattern zombieSlalomPattern;
 
+    public Tilemap foreground;
+    public Transform pushPoint;
+    public Transform doorPoint;
+    public Tile doorTile;
+    private Vector3Int doorTilePos;
+
     private bool havePatternRunning = false;
     private int phase = 4;
-    private bool isNecroMangerWeak = false;
-    private IEnumerator currentCoroutine;
+    private bool isNecromangerWeak = false;
+    private IEnumerator currentPhase;
 
     void Start()
     {
-
+        doorTilePos = foreground.WorldToCell(doorPoint.position);
+        foreground.SetTile(doorTilePos, doorTile);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (isNecroMangerWeak || havePatternRunning) return;
+        if (life == 0)
+        {
+            foreground.SetTile(doorTilePos, null);
+            Destroy(gameObject);
+        }
+
+        if (isNecromangerWeak || havePatternRunning) return;
 
         if (phase == 1)
         {
@@ -71,36 +84,48 @@ public class Necromanger : MonoBehaviour, IInteractable
         {
             (pattern as ZombieGeneratorPattern).StopInvoking = false;
         }
-        currentCoroutine = pattern.RunPattern();
-        StartCoroutine(currentCoroutine);
+        currentPhase = pattern.RunPattern();
+        StartCoroutine(currentPhase);
         havePatternRunning = true;
 
         yield return new WaitForSeconds(runningTime);
 
         pattern.CleanPattern();
-        StopCoroutine(currentCoroutine);
+        StopCoroutine(currentPhase);
         havePatternRunning = false;
         phase++;
-        StartCoroutine(NecromangerWeakPhase());
+
+        currentPhase = NecromangerWeakPhase();
+        StartCoroutine(currentPhase);
     }
 
     private IEnumerator NecromangerWeakPhase()
     {
-        isNecroMangerWeak = true;
+        isNecromangerWeak = true;
         zombieShield.SetActive(false);
         yield return new WaitForSeconds(weakTime);
+        StartCoroutine(RestoreShield());
+    }
 
-        //PlayerManager.Instance.MovePlayerTo(pushPoint.position, 17f);
+    private IEnumerator RestoreShield()
+    {
+        StopCoroutine(currentPhase);
+        PlayerManager.Instance.SetPlayerPosition(EPlayerPosition.UP);
+        PlayerManager.Instance.MovePlayerTo(pushPoint.position, 17f);
         yield return new WaitForSeconds(0.5f);
 
         zombieShield.SetActive(true);
         yield return new WaitForSeconds(0.5f);
 
-        isNecroMangerWeak = false;
+        isNecromangerWeak = false;
     }
 
     public void Interact()
     {
-        throw new System.NotImplementedException();
+        if (isNecromangerWeak)
+        {
+            StartCoroutine(RestoreShield());
+            life--;
+        }
     }
 }

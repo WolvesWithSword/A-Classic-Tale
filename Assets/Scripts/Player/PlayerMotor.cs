@@ -113,7 +113,7 @@ public class PlayerMotor : MonoBehaviour
 		else if (y == 1) playerLookAt = EDirection.UP;
 	}
 
-	private Vector2 LookAtDirection()
+	private Vector2 LookDirectionVector()
 	{
 		switch (playerLookAt)
 		{
@@ -133,13 +133,11 @@ public class PlayerMotor : MonoBehaviour
 	private void Interact()
 	{
 		int layer = LayerMask.NameToLayer("Interactable");
-		Debug.Log(layer);
-		RaycastHit2D hit = Physics2D.Raycast(transform.position, LookAtDirection(), 1.1f, layer);
+		RaycastHit2D hit = Physics2D.Raycast(transform.position, LookDirectionVector(), 1.1f, 1 << layer);// layer MASK ! it's in the name T_T
 
-		Debug.DrawRay(transform.position, LookAtDirection() * 1.1f, Color.red, 2);
 		if (hit)
 		{
-			Debug.Log(hit.transform);
+			PlayerManager.Instance.InteractWith(hit.transform.gameObject);
 		}
 	}
 

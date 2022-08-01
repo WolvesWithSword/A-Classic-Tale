@@ -59,12 +59,16 @@ public class PlayerManager : MonoBehaviour
 			canInteract = false;
 		}
 		playerStats.TakeDamage();
+		PrintScreen();
+	}
 
+	private void PrintScreen()
+	{
 		if (playerStats.IsDead())
 		{
 			GameManager.Instance.ShowGameOverScreen();
 		}
-		else if(!GameManager.Instance.isInBossFight)
+		else if (!GameManager.Instance.isInBossFight)
 		{
 			GameManager.Instance.ShowRestartScreen();
 		}
@@ -105,5 +109,18 @@ public class PlayerManager : MonoBehaviour
 	public void MovePlayerTo(Vector3 position, float speed)
 	{
 		playerMotor.MovePlayerTo(position, speed);
+	}
+
+	public void InteractWith(GameObject interacted)
+	{
+		if(interacted.GetComponent<IInteractable>() != null)
+		{
+			interacted.GetComponent<IInteractable>().Interact();
+		}
+	}
+
+	public void SetPlayerPosition(EPlayerPosition playerPos)
+	{
+		playerMotor.SetPlayerPosition(playerPos);
 	}
 }
