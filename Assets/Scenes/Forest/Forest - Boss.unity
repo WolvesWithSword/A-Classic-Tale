@@ -545,7 +545,9 @@ GameObject:
   - component: {fileID: 161200709}
   - component: {fileID: 161200708}
   - component: {fileID: 161200710}
-  m_Layer: 0
+  - component: {fileID: 161200711}
+  - component: {fileID: 161200712}
+  m_Layer: 6
   m_Name: Necromanger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -640,6 +642,53 @@ MonoBehaviour:
   zombieCirclePattern: {fileID: 1698199584}
   zombieSpiralPattern: {fileID: 1267417162}
   zombieSlalomPattern: {fileID: 1454534774}
+--- !u!61 &161200711
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 161200707}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.0115989, y: 0.011598945}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.8376148, y: 0.9768021}
+  m_EdgeRadius: 0
+--- !u!50 &161200712
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 161200707}
+  m_BodyType: 2
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1001 &173302182
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -742,6 +791,10 @@ PrefabInstance:
     - target: {fileID: 501177923792187978, guid: c614da2b06901e247bb51a7246430b11, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 501177923792187978, guid: c614da2b06901e247bb51a7246430b11, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 501177923792187978, guid: c614da2b06901e247bb51a7246430b11, type: 3}
       propertyPath: m_IsActive
@@ -5309,17 +5362,29 @@ CompositeCollider2D:
       - X: -59999900
         Y: 50000000
       - X: -59999900
-        Y: -69999900
-      - X: 60000000
-        Y: -69999900
-    - - X: -49999900
-        Y: -59999900
+        Y: -19999900
+      - X: -49999959
+        Y: -19999900
+      - X: -49999900
+        Y: -19999959
       - X: -49999900
         Y: 29999900
       - X: 39999900
         Y: 29999900
       - X: 39999900
         Y: -59999900
+      - X: -49999900
+        Y: -59999900
+      - X: -49999900
+        Y: -30000041
+      - X: -49999959
+        Y: -30000100
+      - X: -59999900
+        Y: -30000100
+      - X: -59999900
+        Y: -69999900
+      - X: 60000000
+        Y: -69999900
     - - X: 100
         Y: -20000041
       - X: 100
@@ -5341,11 +5406,15 @@ CompositeCollider2D:
     - - {x: 5.999971, y: -6.9999905}
       - {x: 5.999971, y: 5}
       - {x: -5.99999, y: 4.999971}
-      - {x: -5.999961, y: -6.9999905}
-    - - {x: 3.99999, y: -5.999961}
-      - {x: -4.99999, y: -5.999961}
+      - {x: -5.999961, y: -1.99999}
+      - {x: -4.99999, y: -1.9999666}
       - {x: -4.999961, y: 2.99999}
       - {x: 3.99999, y: 2.9999607}
+      - {x: 3.999961, y: -5.99999}
+      - {x: -4.99999, y: -5.999961}
+      - {x: -5.0000253, y: -3.00001}
+      - {x: -5.99999, y: -3.0000393}
+      - {x: -5.999961, y: -6.9999905}
     - - {x: -0.0000252, y: -2.00001}
       - {x: -0.0000252, y: -0.99999}
       - {x: -1.00001, y: -1.0000252}
@@ -5648,16 +5717,6 @@ Tilemap:
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
   - first: {x: 5, y: -4, z: 0}
-    second:
-      serializedVersion: 2
-      m_TileIndex: 0
-      m_TileSpriteIndex: 0
-      m_TileMatrixIndex: 0
-      m_TileColorIndex: 0
-      m_TileObjectToInstantiateIndex: 65535
-      dummyAlignment: 0
-      m_AllTileFlags: 1073741825
-  - first: {x: -6, y: -3, z: 0}
     second:
       serializedVersion: 2
       m_TileIndex: 0
@@ -6089,7 +6148,7 @@ Tilemap:
       m_AllTileFlags: 1073741825
   m_AnimatedTiles: {}
   m_TileAssetArray:
-  - m_RefCount: 63
+  - m_RefCount: 62
     m_Data: {fileID: 11400000, guid: 2a9d947d4543f6b41b6039bdc1f86268, type: 2}
   - m_RefCount: 0
     m_Data: {fileID: 0}
@@ -6106,7 +6165,7 @@ Tilemap:
   - m_RefCount: 1
     m_Data: {fileID: 11400000, guid: 605284d96720b6f4da6803ef638cf6a2, type: 2}
   m_TileSpriteArray:
-  - m_RefCount: 63
+  - m_RefCount: 62
     m_Data: {fileID: -788464911, guid: 62ccc0907646c5441bf509495628d0e4, type: 3}
   - m_RefCount: 0
     m_Data: {fileID: 0}
@@ -6123,7 +6182,7 @@ Tilemap:
   - m_RefCount: 1
     m_Data: {fileID: 1828473454, guid: 62ccc0907646c5441bf509495628d0e4, type: 3}
   m_TileMatrixArray:
-  - m_RefCount: 64
+  - m_RefCount: 63
     m_Data:
       e00: 1
       e01: 0
@@ -6142,7 +6201,7 @@ Tilemap:
       e32: 0
       e33: 1
   m_TileColorArray:
-  - m_RefCount: 64
+  - m_RefCount: 63
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1

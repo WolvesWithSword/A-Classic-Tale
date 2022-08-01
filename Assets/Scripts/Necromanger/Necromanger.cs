@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Necromanger : MonoBehaviour
+public class Necromanger : MonoBehaviour, IInteractable 
 {
     public GameObject zombieShield;
     public float phase1Time = 20f;
@@ -90,5 +90,10 @@ public class Necromanger : MonoBehaviour
         zombieShield.SetActive(true);
         yield return new WaitForSeconds(1f);
         isNecroMangerWeak = false;
+    }
+
+    public void Interact()
+    {
+        throw new System.NotImplementedException();
     }
 }
