@@ -6,7 +6,7 @@ public abstract class IZombiePattern : MonoBehaviour
 {
     protected List<GameObject> zombiesInstantiate = new List<GameObject>();
 
-    public abstract IEnumerator RunPattern(int phase);
+    public abstract IEnumerator RunPattern();
 
     protected void InvokeZombie(GameObject zombie)
     {
@@ -15,7 +15,7 @@ public abstract class IZombiePattern : MonoBehaviour
         zombiesInstantiate.Add(zombieInstantiate);
     }
 
-    public virtual void CleanPattern(int phase)
+    public virtual void CleanPattern()
     {
         foreach (GameObject zombie in zombiesInstantiate)
         {

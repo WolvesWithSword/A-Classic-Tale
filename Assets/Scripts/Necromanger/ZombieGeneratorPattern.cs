@@ -7,7 +7,7 @@ public class ZombieGeneratorPattern : IZombiePattern
     public float timeBetweenInvocation;
     public bool StopInvoking = false;
 
-    public override IEnumerator RunPattern(int phase)
+    public override IEnumerator RunPattern()
     {
         while(!StopInvoking)
         {
@@ -16,9 +16,9 @@ public class ZombieGeneratorPattern : IZombiePattern
         }
     }
 
-    public override void CleanPattern(int phase)
+    public override void CleanPattern()
     {
-        base.CleanPattern(phase);
+        base.CleanPattern();
         StopInvoking = true;
     }
 }
