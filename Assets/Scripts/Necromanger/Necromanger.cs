@@ -10,6 +10,7 @@ public class Necromanger : MonoBehaviour, IInteractable
     public float phase3Time = 35f;
     public float weakTime = 5f;
     public int life = 3;
+    public Transform pushPoint;
 
     public ZombieCirclePattern zombieCirclePattern;
     public ZombieGeneratorPattern zombieSpiralPattern;
@@ -18,6 +19,7 @@ public class Necromanger : MonoBehaviour, IInteractable
     private bool havePatternRunning = false;
     private int phase = 4;
     private bool isNecroMangerWeak = false;
+    private IEnumerator currentCoroutine;
 
     void Start()
     {
@@ -69,14 +71,14 @@ public class Necromanger : MonoBehaviour, IInteractable
         {
             (pattern as ZombieGeneratorPattern).StopInvoking = false;
         }
-        var coroutine = pattern.RunPattern();
-        StartCoroutine(coroutine);
+        currentCoroutine = pattern.RunPattern();
+        StartCoroutine(currentCoroutine);
         havePatternRunning = true;
 
         yield return new WaitForSeconds(runningTime);
 
         pattern.CleanPattern();
-        StopCoroutine(coroutine);
+        StopCoroutine(currentCoroutine);
         havePatternRunning = false;
         phase++;
         StartCoroutine(NecromangerWeakPhase());
@@ -87,8 +89,13 @@ public class Necromanger : MonoBehaviour, IInteractable
         isNecroMangerWeak = true;
         zombieShield.SetActive(false);
         yield return new WaitForSeconds(weakTime);
+
+        //PlayerManager.Instance.MovePlayerTo(pushPoint.position, 17f);
+        yield return new WaitForSeconds(0.5f);
+
         zombieShield.SetActive(true);
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.5f);
+
         isNecroMangerWeak = false;
     }
 

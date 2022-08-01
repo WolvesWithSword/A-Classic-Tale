@@ -5,7 +5,7 @@ using UnityEngine.Tilemaps;
 
 public class PlayerMotor : MonoBehaviour
 {
-	public float moveSpeed = 0.2f;
+	public float moveSpeed = 4f;
 	public Tilemap obstacles;
 
 	private EDirection playerLookAt;
@@ -60,22 +60,23 @@ public class PlayerMotor : MonoBehaviour
 				if (obstacles.GetTile(obstaclesMap) == null)// Detect walls or obstacles
 				{
 					AudioManager.Instance.GrassStep();
-					StartCoroutine(MovePlayer(moveToPosition));
+					StartCoroutine(MovePlayer(moveToPosition, moveSpeed));
 				}
 			}
 		}
 	}
 
-	private IEnumerator MovePlayer(Vector3 targetPos)
+	private IEnumerator MovePlayer(Vector3 targetPos, float speed)
     {
 		isMoving = true;
         while ((targetPos - transform.position).sqrMagnitude > Mathf.Epsilon) 
         {
-			transform.position = Vector3.MoveTowards(transform.position, targetPos, moveSpeed * Time.deltaTime);
+			transform.position = Vector3.MoveTowards(transform.position, targetPos, speed * Time.deltaTime);
 			yield return null;
         }
 		transform.position = targetPos;// To be sure
 		isMoving = false;
+		canMove = true; // For after some teleportation
 	}
 
 	public void Die()
@@ -97,6 +98,13 @@ public class PlayerMotor : MonoBehaviour
 		StopAllCoroutines();
 	}
 
+	public void MovePlayerTo(Vector3 position, float speed)
+	{
+		StopMoving();
+		canMove = false;
+		StartCoroutine(MovePlayer(position, speed));
+	}
+
 	private void UpdatePlayerLookAt(float x, float y)
 	{
 		if (x == 1) playerLookAt = EDirection.RIGHT;
@@ -105,7 +113,7 @@ public class PlayerMotor : MonoBehaviour
 		else if (y == 1) playerLookAt = EDirection.UP;
 	}
 
-	private Vector2 GetPlayerLookAt()
+	private Vector2 LookAtDirection()
 	{
 		switch (playerLookAt)
 		{
@@ -126,9 +134,9 @@ public class PlayerMotor : MonoBehaviour
 	{
 		int layer = LayerMask.NameToLayer("Interactable");
 		Debug.Log(layer);
-		RaycastHit2D hit = Physics2D.Raycast(transform.position, GetPlayerLookAt(), 1.1f, layer);
+		RaycastHit2D hit = Physics2D.Raycast(transform.position, LookAtDirection(), 1.1f, layer);
 
-		Debug.DrawRay(transform.position, GetPlayerLookAt() * 1.1f, Color.red, 2);
+		Debug.DrawRay(transform.position, LookAtDirection() * 1.1f, Color.red, 2);
 		if (hit)
 		{
 			Debug.Log(hit.transform);
@@ -141,21 +149,27 @@ public class PlayerMotor : MonoBehaviour
 		{
 			case EPlayerPosition.LIE:
 				animator.Play("BaseLayer.Player_lie");
+				playerLookAt = EDirection.DOWN;
 				break;
 			case EPlayerPosition.RIGHT:
 				animator.Play("BaseLayer.Player_walk_right");
+				playerLookAt = EDirection.RIGHT;
 				break;
 			case EPlayerPosition.LEFT:
 				animator.Play("BaseLayer.Player_walk_left");
+				playerLookAt = EDirection.LEFT;
 				break;
 			case EPlayerPosition.UP:
 				animator.Play("BaseLayer.Player_walk_up");
+				playerLookAt = EDirection.UP;
 				break;
 			case EPlayerPosition.DOWN:
 				animator.Play("BaseLayer.Player_walk_down");
+				playerLookAt = EDirection.DOWN;
 				break;
 			case EPlayerPosition.DIE:
 				animator.Play("BaseLayer.Player_die");
+				playerLookAt = EDirection.DOWN;
 				break;
 			default:
 				break;
@@ -169,5 +183,7 @@ public class PlayerMotor : MonoBehaviour
 			PlayerManager.Instance.PlayerDie();
 		}
 	}
+
+
 
 }

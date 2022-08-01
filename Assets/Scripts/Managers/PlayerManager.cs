@@ -101,4 +101,9 @@ public class PlayerManager : MonoBehaviour
     {
 		playerStats.RestoreHealth(healthAmount);
     }
+
+	public void MovePlayerTo(Vector3 position, float speed)
+	{
+		playerMotor.MovePlayerTo(position, speed);
+	}
 }
