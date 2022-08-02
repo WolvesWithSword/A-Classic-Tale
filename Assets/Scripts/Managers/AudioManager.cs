@@ -54,8 +54,11 @@ public class AudioManager : MonoBehaviour
 
     public void PlayGameOverSong()
     {
+        if (IsSameSongPlay(gameOverSong)) return;
+
         audioSource.Stop();
         audioSource.clip = gameOverSong;
+        lastPlaySong = gameOverSong;
         audioSource.Play();
     }
 

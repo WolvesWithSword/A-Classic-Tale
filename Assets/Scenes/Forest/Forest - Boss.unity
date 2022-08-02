@@ -684,11 +684,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2df596574e0244a42b90cbd2d726785a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  phase1Time: 20
-  phase2Time: 30
-  phase3Time: 35
+  phase1Time: 3
+  phase2Time: 27
+  phase3Time: 30
   weakTime: 4
-  life: 3
+  life: 1
   zombieShield: {fileID: 388413804}
   zombieCirclePattern: {fileID: 1698199584}
   zombieSpiralPattern: {fileID: 1267417162}
