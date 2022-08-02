@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Tilemaps;
 
 public class Necromanger : MonoBehaviour, IInteractable 
 {
@@ -15,22 +14,19 @@ public class Necromanger : MonoBehaviour, IInteractable
     public ZombieCirclePattern zombieCirclePattern;
     public ZombieGeneratorPattern zombieSpiralPattern;
     public ZombieGeneratorPattern zombieSlalomPattern;
+    public BossDoorSystem bossDoor;
 
-    public Tilemap foreground;
     public Transform pushPoint;
-    public Transform doorPoint;
-    public Tile doorTile;
-    private Vector3Int doorTilePos;
 
     private bool havePatternRunning = false;
-    private int phase = 4;
+    private int phase = 0;
     private bool isNecromangerWeak = false;
     private IEnumerator currentPhase;
 
-    void Start()
+    private void Start()
     {
-        doorTilePos = foreground.WorldToCell(doorPoint.position);
-        foreground.SetTile(doorTilePos, doorTile);
+        bossDoor.onDoorClosing = OnBossStart;
+        AudioManager.Instance.StopPlayingSong();
     }
 
     // Update is called once per frame
@@ -38,8 +34,7 @@ public class Necromanger : MonoBehaviour, IInteractable
     {
         if (life == 0)
         {
-            foreground.SetTile(doorTilePos, null);
-            Destroy(gameObject);
+            BossDie();
         }
 
         if (isNecromangerWeak || havePatternRunning) return;
@@ -127,5 +122,25 @@ public class Necromanger : MonoBehaviour, IInteractable
             StartCoroutine(RestoreShield());
             life--;
         }
+    }
+
+    private void OnBossStart()
+    {
+        StartCoroutine(BossStart());
+    }
+
+    private IEnumerator BossStart()
+    {
+        zombieShield.SetActive(true);
+        AudioManager.Instance.PlayBossSong();
+        yield return new WaitForSeconds(0.3f);
+        phase++;
+    }
+
+    private void BossDie()
+    {
+        bossDoor.OpenDoor();
+        AudioManager.Instance.PlayAmbiantSong();
+        Destroy(gameObject);
     }
 }

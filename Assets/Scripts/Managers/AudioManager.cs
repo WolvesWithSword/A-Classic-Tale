@@ -26,6 +26,9 @@ public class AudioManager : MonoBehaviour
     public AudioClip zombieGrowl;
     public AudioClip hauntedTreeGrowl;
     public AudioClip gameOverSong;
+    public AudioClip bossSong;
+
+    private AudioClip lastPlaySong;
 
     private void Start()
     {
@@ -58,8 +61,32 @@ public class AudioManager : MonoBehaviour
 
     public void PlayAmbiantSong()
     {
+        if (IsSameSongPlay(ambiantSong)) return;
+
         audioSource.Stop();
         audioSource.clip = ambiantSong;
+        lastPlaySong = ambiantSong;
         audioSource.Play();
+    }
+
+    public void PlayBossSong()
+    {
+        if (IsSameSongPlay(bossSong)) return;
+
+        audioSource.Stop();
+        audioSource.clip = bossSong;
+        lastPlaySong = bossSong;
+        audioSource.Play();
+    }
+
+    private bool IsSameSongPlay(AudioClip song)
+    {
+        return song == lastPlaySong;
+    }
+
+    public void StopPlayingSong()
+    {
+        audioSource.Stop();
+        lastPlaySong = null;
     }
 }
