@@ -2694,7 +2694,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerStats: {fileID: 0}
-  invicible: 1
+  invicible: 0
   invicibleTime: 3
 --- !u!4 &884602121
 Transform:
