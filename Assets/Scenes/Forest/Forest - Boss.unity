@@ -684,11 +684,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2df596574e0244a42b90cbd2d726785a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  phase1Time: 3
+  phase1Time: 20
   phase2Time: 27
   phase3Time: 30
   weakTime: 4
-  life: 1
+  life: 3
   zombieShield: {fileID: 388413804}
   zombieCirclePattern: {fileID: 1698199584}
   zombieSpiralPattern: {fileID: 1267417162}
@@ -2694,7 +2694,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerStats: {fileID: 0}
-  invicible: 0
+  invicible: 1
   invicibleTime: 3
 --- !u!4 &884602121
 Transform:
@@ -5106,6 +5106,7 @@ MonoBehaviour:
   zombiePrefab: {fileID: 1240110786}
   timeBetweenInvocation: 1.5
   StopInvoking: 0
+  spawnPrefab: {fileID: 4794595536000690743, guid: b9641ff07b147cf4cad58acec93ef387, type: 3}
 --- !u!4 &1267417163
 Transform:
   m_ObjectHideFlags: 0
@@ -6668,6 +6669,7 @@ MonoBehaviour:
   zombiePrefab: {fileID: 1333503533}
   timeBetweenInvocation: 2
   StopInvoking: 0
+  spawnPrefab: {fileID: 4794595536000690743, guid: b9641ff07b147cf4cad58acec93ef387, type: 3}
 --- !u!1 &1466961489
 GameObject:
   m_ObjectHideFlags: 0

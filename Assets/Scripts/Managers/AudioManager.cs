@@ -17,6 +17,7 @@ public class AudioManager : MonoBehaviour
         }
         instance = this;
         DontDestroyOnLoad(gameObject);
+        audioSource = this.GetComponent<AudioSource>();
     }
     #endregion
 
@@ -32,7 +33,6 @@ public class AudioManager : MonoBehaviour
 
     private void Start()
     {
-        audioSource = this.GetComponent<AudioSource>();
         audioSource.clip = ambiantSong;
         audioSource.Play();
     }

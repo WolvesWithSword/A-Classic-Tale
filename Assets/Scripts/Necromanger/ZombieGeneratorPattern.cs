@@ -6,9 +6,13 @@ public class ZombieGeneratorPattern : IZombiePattern
     public GameObject zombiePrefab;
     public float timeBetweenInvocation;
     public bool StopInvoking = false;
+    public GameObject spawnPrefab;
 
+    private GameObject spawnObject;
+        
     public override IEnumerator RunPattern()
     {
+        spawnObject = Instantiate(spawnPrefab, zombiePrefab.transform.position, Quaternion.identity, gameObject.transform);
         while(!StopInvoking)
         {
             InvokeZombie(zombiePrefab);
@@ -20,5 +24,6 @@ public class ZombieGeneratorPattern : IZombiePattern
     {
         base.CleanPattern();
         StopInvoking = true;
+        Destroy(spawnObject);
     }
 }
