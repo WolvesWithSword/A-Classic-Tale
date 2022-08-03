@@ -2570,6 +2570,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerStats: {fileID: 0}
+  invicible: 0
+  invicibleTime: 3
 --- !u!4 &781129350
 Transform:
   m_ObjectHideFlags: 0

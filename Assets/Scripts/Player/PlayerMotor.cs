@@ -6,6 +6,7 @@ using UnityEngine.Tilemaps;
 public class PlayerMotor : MonoBehaviour
 {
 	public float moveSpeed = 4f;
+	public float timeToMove = 0.2f;
 	public Tilemap obstacles;
 
 	private EDirection playerLookAt;
@@ -60,23 +61,37 @@ public class PlayerMotor : MonoBehaviour
 				if (obstacles.GetTile(obstaclesMap) == null)// Detect walls or obstacles
 				{
 					AudioManager.Instance.GrassStep();
-					StartCoroutine(MovePlayer(moveToPosition, moveSpeed));
+					StartCoroutine(MovePlayer(moveToPosition, timeToMove));
 				}
 			}
 		}
 	}
 
-	private IEnumerator MovePlayer(Vector3 targetPos, float speed)
+	private IEnumerator TeleportPlayer(Vector3 targetPos, float speed)
     {
-		isMoving = true;
         while ((targetPos - transform.position).sqrMagnitude > Mathf.Epsilon) 
         {
 			transform.position = Vector3.MoveTowards(transform.position, targetPos, speed * Time.deltaTime);
 			yield return null;
         }
 		transform.position = targetPos;// To be sure
-		isMoving = false;
 		canMove = true; // For after some teleportation
+	}
+	private IEnumerator MovePlayer(Vector3 targetPos, float timeToMove)
+	{
+		isMoving = true;
+		float elapsedTime = 0;
+		Vector3 originPos = transform.position; 
+			
+		while (elapsedTime < timeToMove)
+		{
+			//Lerp is better for movement
+			transform.position = Vector3.Lerp(originPos, targetPos, (elapsedTime/timeToMove));
+			elapsedTime += Time.deltaTime;
+			yield return null;
+		}
+		transform.position = targetPos;// To be sure
+		isMoving = false;
 	}
 
 	public void Die()
@@ -102,7 +117,7 @@ public class PlayerMotor : MonoBehaviour
 	{
 		StopMoving();
 		canMove = false;
-		StartCoroutine(MovePlayer(position, speed));
+		StartCoroutine(TeleportPlayer(position, speed));
 	}
 
 	private void UpdatePlayerLookAt(float x, float y)

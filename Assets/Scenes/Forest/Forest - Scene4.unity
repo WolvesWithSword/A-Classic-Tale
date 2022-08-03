@@ -1237,6 +1237,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerStats: {fileID: 0}
   invicible: 0
+  invicibleTime: 3
 --- !u!4 &845860145
 Transform:
   m_ObjectHideFlags: 0
@@ -5860,7 +5861,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2432813613332875357, guid: f1dfd3c62346b6e4385defd9c7c24d49, type: 3}
       propertyPath: m_SortingOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f1dfd3c62346b6e4385defd9c7c24d49, type: 3}

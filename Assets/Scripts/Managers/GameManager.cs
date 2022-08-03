@@ -92,6 +92,7 @@ public class GameManager : MonoBehaviour
         gameOverScreen.Show(false);
         SceneManager.LoadScene("Forest - Scene1");// Back to last check point
         AudioManager.Instance.PlayAmbiantSong();
+        ItemsManager.Instance.ResetHearts();
         PlayerManager.Instance.ResetPlayer();
     }
 }

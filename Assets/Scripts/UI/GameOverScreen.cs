@@ -13,4 +13,12 @@ public class GameOverScreen : MonoBehaviour
     {
         GameManager.Instance.RestartGame();
     }
+
+    private void Update()
+    {
+        if (Input.GetKey(KeyCode.Space))
+        {
+            GameManager.Instance.RestartGame();
+        }
+    }
 }

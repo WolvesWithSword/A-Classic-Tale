@@ -13,4 +13,12 @@ public class RestartScreen : MonoBehaviour
     {
         GameManager.Instance.RetryLevel();
     }
+
+    private void Update()
+    {
+        if (Input.GetKey(KeyCode.Space))
+        {
+            GameManager.Instance.RetryLevel();
+        }
+    }
 }

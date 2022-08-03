@@ -42,5 +42,9 @@ public class ItemsManager : MonoBehaviour
         }
     }
 
+    public void ResetHearts()
+    {
+        pickedUpGameHearts.Clear();
+    }
 
 }

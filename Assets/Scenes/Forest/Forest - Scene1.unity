@@ -240,6 +240,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 915549e3d4c7f574787524661b66b20b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerStats: {fileID: 0}
+  invicible: 0
+  invicibleTime: 3
 --- !u!1001 &464449117
 PrefabInstance:
   m_ObjectHideFlags: 0
