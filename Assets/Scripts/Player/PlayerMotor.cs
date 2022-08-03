@@ -26,6 +26,18 @@ public class PlayerMotor : MonoBehaviour
 
 	private void Start()
 	{
+		BlockMovementFor(0.3f);
+	}
+
+	public void BlockMovementFor(float blockedTime)
+	{
+		StartCoroutine(BlockMovementForCoroutine(blockedTime));
+	}
+
+	public IEnumerator BlockMovementForCoroutine(float sec)
+	{
+		canMove = false;
+		yield return new WaitForSeconds(sec);
 		canMove = true;
 	}
 

@@ -123,4 +123,9 @@ public class PlayerManager : MonoBehaviour
 	{
 		playerMotor.SetPlayerPosition(playerPos);
 	}
+
+	public void BlockPlayerMovementFor(float blockedTime)
+	{
+		playerMotor.BlockMovementFor(blockedTime);
+	}
 }
