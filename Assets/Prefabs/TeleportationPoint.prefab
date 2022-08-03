@@ -47,7 +47,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4505699075f71d44d8cfb6a057997bdd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  teleporterTag: 
+  spawnPoint: {fileID: 0}
   targetScene: Scene2
+  enterPosition: 0
 --- !u!50 &4808632527418868580
 Rigidbody2D:
   serializedVersion: 4
@@ -93,7 +96,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.4, y: 0.4}
+  m_Size: {x: 0.5, y: 0.5}
   m_EdgeRadius: 0
 --- !u!1 &7338040059592396952
 GameObject:

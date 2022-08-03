@@ -14,6 +14,7 @@ public class PlayerMotor : MonoBehaviour
 	private Vector2 movement;
 	private Vector3 moveToPosition;
 	private bool isMoving;
+
 	private bool canMove;
 
 
@@ -97,8 +98,7 @@ public class PlayerMotor : MonoBehaviour
 	public void Die()
     {
 		animator.SetBool("Dead", true);
-		StopMoving();// To not teleport player if coroutine continue
-		canMove = false;
+		StopMotor();// To not teleport player if coroutine continue
 	}
 
 	public void Revive()
@@ -107,16 +107,16 @@ public class PlayerMotor : MonoBehaviour
 		animator.SetBool("Dead", false);
 	}
 
-	public void StopMoving()
+	public void StopMotor()
     {
 		isMoving = false;
 		StopAllCoroutines();
+		canMove = false;
 	}
 
 	public void MovePlayerTo(Vector3 position, float speed)
 	{
-		StopMoving();
-		canMove = false;
+		StopMotor();
 		StartCoroutine(TeleportPlayer(position, speed));
 	}
 
