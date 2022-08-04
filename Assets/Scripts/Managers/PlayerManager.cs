@@ -49,6 +49,7 @@ public class PlayerManager : MonoBehaviour
 	{
 		if (!canInteract || invicible) return;// Invicibility when die
 
+		CameraShake.Instance.StartShake(0.6f, 0.08f, 70);
 		if (GameManager.Instance.isInBossFight)
 		{
 			StartCoroutine(TakeDamageInBossFight());
