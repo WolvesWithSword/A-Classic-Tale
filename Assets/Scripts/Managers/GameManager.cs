@@ -27,6 +27,7 @@ public class GameManager : MonoBehaviour
 
     [HideInInspector]
     public string teleporterTag;//To do link between teleporter and map
+    [HideInInspector]
     public bool isInBossFight = false;
 
     void Start()
