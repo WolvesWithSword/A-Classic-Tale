@@ -1047,7 +1047,7 @@ PrefabInstance:
       objectReference: {fileID: 240275472}
     - target: {fileID: 4808632527418868583, guid: 8632deee4b5690c46a09c7b9bf971487, type: 3}
       propertyPath: targetScene
-      value: Forest - Scene7
+      value: Forest - Scene8
       objectReference: {fileID: 0}
     - target: {fileID: 4808632527418868583, guid: 8632deee4b5690c46a09c7b9bf971487, type: 3}
       propertyPath: enterPosition
@@ -1055,7 +1055,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4808632527418868583, guid: 8632deee4b5690c46a09c7b9bf971487, type: 3}
       propertyPath: teleporterTag
-      value: 7 - B
+      value: 8 - FB
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8632deee4b5690c46a09c7b9bf971487, type: 3}
@@ -4341,7 +4341,7 @@ Tilemap:
       m_AnimatedSprites:
       - {fileID: -478931431, guid: 62ccc0907646c5441bf509495628d0e4, type: 3}
       - {fileID: -155804599, guid: 62ccc0907646c5441bf509495628d0e4, type: 3}
-      m_AnimationSpeed: 1.5
+      m_AnimationSpeed: 1.5000001
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   - first: {x: -5, y: -5, z: 0}
@@ -4357,7 +4357,7 @@ Tilemap:
       m_AnimatedSprites:
       - {fileID: -478931431, guid: 62ccc0907646c5441bf509495628d0e4, type: 3}
       - {fileID: -155804599, guid: 62ccc0907646c5441bf509495628d0e4, type: 3}
-      m_AnimationSpeed: 1.5
+      m_AnimationSpeed: 1.5000001
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   - first: {x: -2, y: -3, z: 0}
@@ -5337,10 +5337,10 @@ RectTransform:
   m_Father: {fileID: 1520846841}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1000, y: 1000}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1230523570
 MonoBehaviour:

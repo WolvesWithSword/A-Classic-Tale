@@ -24,6 +24,7 @@ public class GameManager : MonoBehaviour
     public GameOverScreen gameOverScreen;
 
     private GameObject spawnPoint;
+    private string respawnScene = "Forest - Scene1";
 
     [HideInInspector]
     public string teleporterTag;//To do link between teleporter and map
@@ -92,9 +93,14 @@ public class GameManager : MonoBehaviour
     {
         gameOverScreen.Show(false);
         // BUG use levelloader instead but make gameover screen appear 2 time if we hit restart to quickly
-        SceneManager.LoadScene("Forest - Scene1");// Back to last check point
+        SceneManager.LoadScene(respawnScene);// Back to last check point
         AudioManager.Instance.PlayAmbiantSong();
         ItemsManager.Instance.ResetHearts();
         PlayerManager.Instance.ResetPlayer();
+    }
+
+    public void ChangeRespawnScene(string newScene)
+    {
+        respawnScene = newScene;
     }
 }

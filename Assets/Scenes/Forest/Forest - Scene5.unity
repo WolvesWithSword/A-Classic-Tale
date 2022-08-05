@@ -158,10 +158,10 @@ RectTransform:
   m_Father: {fileID: 1741365696}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1000, y: 1000}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &8742693
 MonoBehaviour:
@@ -4675,7 +4675,7 @@ Tilemap:
       m_AnimatedSprites:
       - {fileID: 1081658059, guid: 62ccc0907646c5441bf509495628d0e4, type: 3}
       - {fileID: 1360126081, guid: 62ccc0907646c5441bf509495628d0e4, type: 3}
-      m_AnimationSpeed: 1.5
+      m_AnimationSpeed: 1.5000001
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   - first: {x: 3, y: -5, z: 0}
@@ -4683,7 +4683,7 @@ Tilemap:
       m_AnimatedSprites:
       - {fileID: 525070136, guid: 62ccc0907646c5441bf509495628d0e4, type: 3}
       - {fileID: 998747126, guid: 62ccc0907646c5441bf509495628d0e4, type: 3}
-      m_AnimationSpeed: 1.5000001
+      m_AnimationSpeed: 1.5
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   - first: {x: -1, y: -4, z: 0}
@@ -4755,7 +4755,7 @@ Tilemap:
       m_AnimatedSprites:
       - {fileID: 1081658059, guid: 62ccc0907646c5441bf509495628d0e4, type: 3}
       - {fileID: 1360126081, guid: 62ccc0907646c5441bf509495628d0e4, type: 3}
-      m_AnimationSpeed: 1.5000001
+      m_AnimationSpeed: 1.5
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   - first: {x: 1, y: -2, z: 0}
@@ -4771,7 +4771,7 @@ Tilemap:
       m_AnimatedSprites:
       - {fileID: 525070136, guid: 62ccc0907646c5441bf509495628d0e4, type: 3}
       - {fileID: 998747126, guid: 62ccc0907646c5441bf509495628d0e4, type: 3}
-      m_AnimationSpeed: 1.5000001
+      m_AnimationSpeed: 1.5
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   - first: {x: 3, y: -2, z: 0}
