@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public class Necromanger : MonoBehaviour, IInteractable 
 {
@@ -17,6 +18,7 @@ public class Necromanger : MonoBehaviour, IInteractable
     public BossDoorSystem bossDoor;
 
     public Transform pushPoint;
+    public Tilemap foreground;
 
     private bool havePatternRunning = false;
     private int phase = 0;
@@ -105,8 +107,7 @@ public class Necromanger : MonoBehaviour, IInteractable
     private IEnumerator RestoreShield()
     {
         StopCoroutine(currentPhase);
-        PlayerManager.Instance.SetPlayerPosition(EPlayerPosition.UP);
-        PlayerManager.Instance.MovePlayerTo(pushPoint.position, 17f);
+        PlayerManager.Instance.PushPlayerTo(pushPoint.position, 17f, EPlayerPosition.UP);
         yield return new WaitForSeconds(0.5f);
 
         zombieShield.SetActive(true);
@@ -141,6 +142,7 @@ public class Necromanger : MonoBehaviour, IInteractable
     {
         bossDoor.OpenDoor();
         AudioManager.Instance.PlayAmbiantSong();
+        foreground.SetTile(foreground.WorldToCell(transform.position), null);//We can go to his case
         Destroy(gameObject);
     }
 }

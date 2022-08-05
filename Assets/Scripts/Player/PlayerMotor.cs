@@ -80,7 +80,7 @@ public class PlayerMotor : MonoBehaviour
 		}
 	}
 
-	private IEnumerator TeleportPlayer(Vector3 targetPos, float speed)
+	private IEnumerator PushPlayer(Vector3 targetPos, float speed)
     {
         while ((targetPos - transform.position).sqrMagnitude > Mathf.Epsilon) 
         {
@@ -88,6 +88,7 @@ public class PlayerMotor : MonoBehaviour
 			yield return null;
         }
 		transform.position = targetPos;// To be sure
+		CameraShake.Instance.StartShake(0.6f, 0.08f, 70);
 		canMove = true; // For after some teleportation
 	}
 	private IEnumerator MovePlayer(Vector3 targetPos, float timeToMove)
@@ -126,10 +127,11 @@ public class PlayerMotor : MonoBehaviour
 		canMove = false;
 	}
 
-	public void MovePlayerTo(Vector3 position, float speed)
+	public void PushPlayerTo(Vector3 position, float speed, EPlayerPosition playerPos = EPlayerPosition.NONE)
 	{
 		StopMotor();
-		StartCoroutine(TeleportPlayer(position, speed));
+		StartCoroutine(PushPlayer(position, speed));
+		if (playerPos != EPlayerPosition.NONE) SetPlayerPosition(playerPos);
 	}
 
 	private void UpdatePlayerLookAt(float x, float y)
@@ -201,12 +203,11 @@ public class PlayerMotor : MonoBehaviour
 		}
 	}
 
-	private void OnTriggerEnter2D(Collider2D collided)
+	private void OnTriggerStay2D(Collider2D collided)
 	{
 		if (collided.tag == "Ennemy")
 		{
 			PlayerManager.Instance.PlayerDie();
 		}
 	}
-
 }

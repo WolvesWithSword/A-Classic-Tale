@@ -491,6 +491,7 @@ MonoBehaviour:
   zombieSlalomPattern: {fileID: 1454534774}
   bossDoor: {fileID: 85290249}
   pushPoint: {fileID: 1580789798}
+  foreground: {fileID: 1316756024}
 --- !u!61 &161200711
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4364,7 +4365,7 @@ Tilemap:
       m_AnimatedSprites:
       - {fileID: 525070136, guid: 62ccc0907646c5441bf509495628d0e4, type: 3}
       - {fileID: 998747126, guid: 62ccc0907646c5441bf509495628d0e4, type: 3}
-      m_AnimationSpeed: 1.5000001
+      m_AnimationSpeed: 1.5
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   - first: {x: -1, y: -3, z: 0}
@@ -4372,7 +4373,7 @@ Tilemap:
       m_AnimatedSprites:
       - {fileID: 1081658059, guid: 62ccc0907646c5441bf509495628d0e4, type: 3}
       - {fileID: 1360126081, guid: 62ccc0907646c5441bf509495628d0e4, type: 3}
-      m_AnimationSpeed: 1.5000001
+      m_AnimationSpeed: 1.5
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   - first: {x: 0, y: -3, z: 0}
@@ -4396,7 +4397,7 @@ Tilemap:
       m_AnimatedSprites:
       - {fileID: 1081658059, guid: 62ccc0907646c5441bf509495628d0e4, type: 3}
       - {fileID: 1360126081, guid: 62ccc0907646c5441bf509495628d0e4, type: 3}
-      m_AnimationSpeed: 1.5000001
+      m_AnimationSpeed: 1.5
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   - first: {x: 0, y: -2, z: 0}
@@ -5270,23 +5271,6 @@ Transform:
   m_Father: {fileID: 813790944}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1163445204 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 501177923792187978, guid: c614da2b06901e247bb51a7246430b11, type: 3}
-  m_PrefabInstance: {fileID: 191280828}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1163445211
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1163445204}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dd67cf5108549de47b7021e89e9d1952, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1204130202
 GameObject:
   m_ObjectHideFlags: 0
@@ -5706,6 +5690,11 @@ Transform:
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7145200875981928313, guid: 59898adb49c8abe44b4bd4df87cf6bb5, type: 3}
   m_PrefabInstance: {fileID: 1296926545}
+  m_PrefabAsset: {fileID: 0}
+--- !u!20 &1308889787 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 1950305577898120495, guid: 7bcb905710c1b0a409f05734036a25ad, type: 3}
+  m_PrefabInstance: {fileID: 1516686748}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1316756018
 GameObject:
@@ -7285,7 +7274,7 @@ Canvas:
   m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 1
-  m_Camera: {fileID: 0}
+  m_Camera: {fileID: 1308889787}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1

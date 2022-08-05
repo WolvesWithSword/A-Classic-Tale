@@ -91,6 +91,7 @@ public class GameManager : MonoBehaviour
     public void RestartGame()
     {
         gameOverScreen.Show(false);
+        // BUG use levelloader instead but make gameover screen appear 2 time if we hit restart to quickly
         SceneManager.LoadScene("Forest - Scene1");// Back to last check point
         AudioManager.Instance.PlayAmbiantSong();
         ItemsManager.Instance.ResetHearts();

@@ -8,7 +8,8 @@ public enum EPlayerPosition {
 	LEFT,
 	UP,
 	DOWN,
-	DIE
+	DIE,
+	NONE
 }
 
 public enum EDirection

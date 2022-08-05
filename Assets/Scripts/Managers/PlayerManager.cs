@@ -107,9 +107,9 @@ public class PlayerManager : MonoBehaviour
 		playerStats.RestoreHealth(healthAmount);
     }
 
-	public void MovePlayerTo(Vector3 position, float speed)
+	public void PushPlayerTo(Vector3 position, float speed, EPlayerPosition playerPos = EPlayerPosition.NONE)
 	{
-		playerMotor.MovePlayerTo(position, speed);
+		playerMotor.PushPlayerTo(position, speed, playerPos);
 	}
 
 	public void InteractWith(GameObject interacted)
