@@ -465,6 +465,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1580789798}
+  - {fileID: 862503456}
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2720,6 +2721,68 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 257413534078304939, guid: 029c0f7048a9da9429e39822c842bbf7, type: 3}
   m_PrefabInstance: {fileID: 813790942}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &862503455
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 161200709}
+    m_Modifications:
+    - target: {fileID: 4506681148979900592, guid: daa8ee6e18a324b4ca58c208aa65ae8a, type: 3}
+      propertyPath: m_Name
+      value: SlashEffect
+      objectReference: {fileID: 0}
+    - target: {fileID: 4506681148979900594, guid: daa8ee6e18a324b4ca58c208aa65ae8a, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4506681148979900594, guid: daa8ee6e18a324b4ca58c208aa65ae8a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4506681148979900594, guid: daa8ee6e18a324b4ca58c208aa65ae8a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4506681148979900594, guid: daa8ee6e18a324b4ca58c208aa65ae8a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4506681148979900594, guid: daa8ee6e18a324b4ca58c208aa65ae8a, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4506681148979900594, guid: daa8ee6e18a324b4ca58c208aa65ae8a, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4506681148979900594, guid: daa8ee6e18a324b4ca58c208aa65ae8a, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4506681148979900594, guid: daa8ee6e18a324b4ca58c208aa65ae8a, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4506681148979900594, guid: daa8ee6e18a324b4ca58c208aa65ae8a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4506681148979900594, guid: daa8ee6e18a324b4ca58c208aa65ae8a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4506681148979900594, guid: daa8ee6e18a324b4ca58c208aa65ae8a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: daa8ee6e18a324b4ca58c208aa65ae8a, type: 3}
+--- !u!4 &862503456 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4506681148979900594, guid: daa8ee6e18a324b4ca58c208aa65ae8a, type: 3}
+  m_PrefabInstance: {fileID: 862503455}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &884602118
 GameObject:
   m_ObjectHideFlags: 0
@@ -2753,6 +2816,7 @@ MonoBehaviour:
   currentHealth: 0
   maxHealth: 3
   healthUI: {fileID: 0}
+  hasAxe: 0
 --- !u!114 &884602120
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4333,7 +4397,7 @@ Tilemap:
       m_AnimatedSprites:
       - {fileID: -478931431, guid: 62ccc0907646c5441bf509495628d0e4, type: 3}
       - {fileID: -155804599, guid: 62ccc0907646c5441bf509495628d0e4, type: 3}
-      m_AnimationSpeed: 1.5
+      m_AnimationSpeed: 1.5000001
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   - first: {x: 2, y: -6, z: 0}
@@ -4357,7 +4421,7 @@ Tilemap:
       m_AnimatedSprites:
       - {fileID: -478931431, guid: 62ccc0907646c5441bf509495628d0e4, type: 3}
       - {fileID: -155804599, guid: 62ccc0907646c5441bf509495628d0e4, type: 3}
-      m_AnimationSpeed: 1.5000001
+      m_AnimationSpeed: 1.5
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   - first: {x: -2, y: -3, z: 0}

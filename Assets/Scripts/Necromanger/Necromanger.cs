@@ -20,6 +20,8 @@ public class Necromanger : MonoBehaviour, IInteractable
     public Transform pushPoint;
     public Tilemap foreground;
 
+    private SlashEffect slashEffect;
+
     private bool havePatternRunning = false;
     private int phase = 0;
     private bool isNecromangerWeak = false;
@@ -28,6 +30,7 @@ public class Necromanger : MonoBehaviour, IInteractable
 
     private void Start()
     {
+        slashEffect = GetComponentInChildren<SlashEffect>();
         playerHasAxe = PlayerManager.Instance.playerStats.HasAxe;
         bossDoor.onDoorClosing = OnBossStart;
         AudioManager.Instance.StopPlayingSong();
@@ -108,6 +111,7 @@ public class Necromanger : MonoBehaviour, IInteractable
 
     private IEnumerator RestoreShield()
     {
+        yield return new WaitForSeconds(0.2f);
         StopCoroutine(currentPhase);
         PlayerManager.Instance.PushPlayerTo(pushPoint.position, 17f, EPlayerPosition.UP);
         yield return new WaitForSeconds(0.5f);
@@ -122,6 +126,7 @@ public class Necromanger : MonoBehaviour, IInteractable
     {
         if (isNecromangerWeak && playerHasAxe)
         {
+            slashEffect.PlaySlashAnimation();
             StartCoroutine(RestoreShield());
             life--;
         }

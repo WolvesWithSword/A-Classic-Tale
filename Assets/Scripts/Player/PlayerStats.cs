@@ -12,10 +12,12 @@ public class PlayerStats : MonoBehaviour
     [HideInInspector]
     public HealthUI healthUI;
 
+    [SerializeField]
+    private bool hasAxe;
     public bool HasAxe
     {
-        get;
-        set;
+        get { return hasAxe; }
+        set { hasAxe = value; }
     }
 
     private void Start()
