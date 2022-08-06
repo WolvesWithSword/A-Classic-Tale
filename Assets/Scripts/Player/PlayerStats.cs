@@ -12,6 +12,12 @@ public class PlayerStats : MonoBehaviour
     [HideInInspector]
     public HealthUI healthUI;
 
+    public bool HasAxe
+    {
+        get;
+        set;
+    }
+
     private void Start()
     {
         healthUI = FindObjectOfType<HealthUI>();

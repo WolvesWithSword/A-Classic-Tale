@@ -22,6 +22,12 @@ public class ItemsManager : MonoBehaviour
     // Contain all heart of the game and their state : ie pickup or not.
     private Dictionary<string, bool> pickedUpGameHearts = new Dictionary<string, bool>();
 
+    public bool HasTakeAxe
+    {
+        get;
+        set;
+    }
+
     public void OnHeartDiscovered(Heart discoveredHeart)
     {
         if (pickedUpGameHearts.ContainsKey(discoveredHeart.zoneTag))
@@ -42,7 +48,7 @@ public class ItemsManager : MonoBehaviour
         }
     }
 
-    public void ResetHearts()
+    public void ResetHeartsInMap()
     {
         pickedUpGameHearts.Clear();
     }

@@ -24,9 +24,11 @@ public class Necromanger : MonoBehaviour, IInteractable
     private int phase = 0;
     private bool isNecromangerWeak = false;
     private IEnumerator currentPhase;
+    private bool playerHasAxe = false;
 
     private void Start()
     {
+        playerHasAxe = PlayerManager.Instance.playerStats.HasAxe;
         bossDoor.onDoorClosing = OnBossStart;
         AudioManager.Instance.StopPlayingSong();
     }
@@ -118,7 +120,7 @@ public class Necromanger : MonoBehaviour, IInteractable
 
     public void Interact()
     {
-        if (isNecromangerWeak)
+        if (isNecromangerWeak && playerHasAxe)
         {
             StartCoroutine(RestoreShield());
             life--;
