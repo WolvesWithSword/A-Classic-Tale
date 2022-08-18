@@ -28,6 +28,7 @@ public class AudioManager : MonoBehaviour
     public AudioClip hauntedTreeGrowl;
     public AudioClip gameOverSong;
     public AudioClip bossSong;
+    public AudioClip slashSound;
 
     private AudioClip lastPlaySong;
 
@@ -50,6 +51,11 @@ public class AudioManager : MonoBehaviour
     public void HauntedTreeGrowl()
     {
         audioSource.PlayOneShot(hauntedTreeGrowl);
+    }
+
+    public void SlashSound()
+    {
+        audioSource.PlayOneShot(slashSound);
     }
 
     public void PlayGameOverSong()

@@ -147,3 +147,4 @@ MonoBehaviour:
   hauntedTreeGrowl: {fileID: 8300000, guid: 25208da64b9ee7a44bc7a77c9f40efb0, type: 3}
   gameOverSong: {fileID: 8300000, guid: d5c10466a7935584389b16f353022d59, type: 3}
   bossSong: {fileID: 8300000, guid: e733b2d1170fdd84eace01fdd14de4d3, type: 3}
+  slashSound: {fileID: 8300000, guid: 0c161e529256f14459182d673d6da454, type: 3}

@@ -14,6 +14,7 @@ public class SlashEffect : MonoBehaviour
     public void PlaySlashAnimation()
     {
         animator.Play("Slash");
+        AudioManager.Instance.SlashSound();
     }
 
     private void Update()

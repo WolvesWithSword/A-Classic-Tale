@@ -39,6 +39,11 @@ public class BossDoorSystem : MonoBehaviour
         foreground.SetTile(doorTilePos, null);
     }
 
+    public void DeactivateDoor(bool deactivate)
+    {
+        hasTrigger = deactivate;
+    }
+
     public void CloseDoor()
     {
         foreground.SetTile(doorTilePos, doorTile);

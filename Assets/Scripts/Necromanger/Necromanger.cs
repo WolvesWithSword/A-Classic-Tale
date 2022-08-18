@@ -30,6 +30,14 @@ public class Necromanger : MonoBehaviour, IInteractable
 
     private void Start()
     {
+        if (GameEventManager.Instance.hasDefeatedNecromanger)
+        {
+            bossDoor.DeactivateDoor(true);
+            foreground.SetTile(foreground.WorldToCell(transform.position), null);//We can go to his case
+            Destroy(gameObject);
+            return;
+        }
+
         slashEffect = GetComponentInChildren<SlashEffect>();
         playerHasAxe = PlayerManager.Instance.playerStats.HasAxe;
         bossDoor.onDoorClosing = OnBossStart;
@@ -41,7 +49,8 @@ public class Necromanger : MonoBehaviour, IInteractable
     {
         if (life == 0)
         {
-            BossDie();
+            StartCoroutine(BossDie());
+            return;
         }
 
         if (isNecromangerWeak || havePatternRunning) return;
@@ -145,11 +154,13 @@ public class Necromanger : MonoBehaviour, IInteractable
         phase++;
     }
 
-    private void BossDie()
+    private IEnumerator BossDie()
     {
+        yield return new WaitForSeconds(0.5f);
         bossDoor.OpenDoor();
         AudioManager.Instance.PlayAmbiantSong();
         foreground.SetTile(foreground.WorldToCell(transform.position), null);//We can go to his case
+        GameEventManager.Instance.hasDefeatedNecromanger = true;
         Destroy(gameObject);
     }
 }
