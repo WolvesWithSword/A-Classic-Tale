@@ -20,4 +20,5 @@ public class GameEventManager : MonoBehaviour
     #endregion
 
     public bool hasDefeatedNecromanger = false;
+    public bool hasSeenTutorial = false;
 }

@@ -45,10 +45,9 @@ public class GameManager : MonoBehaviour
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         isInBossFight = scene.name.Contains("Boss");
-
-        spawnPoint = GameObject.Find("RespawnPoint");
         PlayerManager.Instance.FetchComponents();// Need to update PlayerManager
 
+        spawnPoint = GameObject.Find("RespawnPoint");
         if (teleporterTag != null) // If player take teleporter then teleport
         {
             var teleporters = FindObjectsOfType<Teleporter>();

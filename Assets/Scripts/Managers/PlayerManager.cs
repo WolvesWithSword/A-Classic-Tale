@@ -129,4 +129,10 @@ public class PlayerManager : MonoBehaviour
 	{
 		playerMotor.BlockMovementFor(blockedTime);
 	}
+
+	public void BlockPlayerMovement(bool blockMovement)
+	{
+		playerMotor.BlockMovement(blockMovement);
+	}
+
 }

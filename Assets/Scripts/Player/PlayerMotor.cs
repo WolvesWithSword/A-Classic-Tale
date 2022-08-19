@@ -41,6 +41,15 @@ public class PlayerMotor : MonoBehaviour
         canMove = true;
     }
 
+    public void BlockMovement(bool blockMovement)
+    {
+        if (blockMovement)
+        {
+            StopMotor();
+        }
+        else canMove = true;
+    }
+
     // Update is called once per frame
     void Update()
     {
