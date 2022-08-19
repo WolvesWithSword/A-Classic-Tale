@@ -21,12 +21,14 @@ public class Necromanger : MonoBehaviour, IInteractable
     public Tilemap foreground;
 
     private SlashEffect slashEffect;
+    private DialogueTrigger deathDialogue;
 
     private bool havePatternRunning = false;
     private int phase = 0;
     private bool isNecromangerWeak = false;
     private IEnumerator currentPhase;
     private bool playerHasAxe = false;
+    private bool isDeathDialogueStarted = false;
 
     private void Start()
     {
@@ -37,7 +39,8 @@ public class Necromanger : MonoBehaviour, IInteractable
             Destroy(gameObject);
             return;
         }
-
+        deathDialogue = GetComponent<DialogueTrigger>();
+        deathDialogue.onDialogueEnd = BossDie;
         slashEffect = GetComponentInChildren<SlashEffect>();
         playerHasAxe = PlayerManager.Instance.playerStats.HasAxe;
         bossDoor.onDoorClosing = OnBossStart;
@@ -49,7 +52,10 @@ public class Necromanger : MonoBehaviour, IInteractable
     {
         if (life == 0)
         {
-            StartCoroutine(BossDie());
+            if (!isDeathDialogueStarted)
+            {
+                RunDeathDialogue();
+            }
             return;
         }
 
@@ -150,13 +156,20 @@ public class Necromanger : MonoBehaviour, IInteractable
     {
         zombieShield.SetActive(true);
         AudioManager.Instance.PlayBossSong();
-        yield return new WaitForSeconds(0.3f);
+        yield return new WaitForSeconds(0.5f);
         phase++;
     }
 
-    private IEnumerator BossDie()
+    private void RunDeathDialogue()
     {
-        yield return new WaitForSeconds(0.5f);
+        CameraShake.Instance.StartShake(1.5f, 0.08f, 150);
+        StopAllCoroutines();
+        deathDialogue.TriggerDialogue();
+        isDeathDialogueStarted = true;
+    }
+
+    private void BossDie()
+    {
         bossDoor.OpenDoor();
         AudioManager.Instance.PlayAmbiantSong();
         foreground.SetTile(foreground.WorldToCell(transform.position), null);//We can go to his case

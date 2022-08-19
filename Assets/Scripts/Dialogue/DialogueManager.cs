@@ -22,6 +22,7 @@ public class DialogueManager : MonoBehaviour
 	#endregion
 
 	public Image dialogueBox;
+	public Image PNJPicture;
 	public TextMeshProUGUI nameText;
 	public TextMeshProUGUI dialogueText;
 
@@ -52,8 +53,11 @@ public class DialogueManager : MonoBehaviour
 		dialogueBox.gameObject.SetActive(true);
 		onDialogueEnd = onDialogueEndCallback;
 		nameText.text = dialogue.name;
+		PNJPicture.sprite = dialogue.characterPicture;
 		sentences.Clear();
 		hasDialogueRunning = true;
+
+		PlayerManager.Instance.BlockPlayerMovement(true);
 
 		foreach (string sentence in dialogue.sentences)
 		{
@@ -89,6 +93,9 @@ public class DialogueManager : MonoBehaviour
 	{
 		onDialogueEnd();
 		hasDialogueRunning = false;
+
+		PlayerManager.Instance.BlockPlayerMovement(false);
+
 		dialogueBox.gameObject.SetActive(false);
 		onDialogueEnd = null;
 	}

@@ -393,6 +393,7 @@ GameObject:
   - component: {fileID: 161200710}
   - component: {fileID: 161200711}
   - component: {fileID: 161200712}
+  - component: {fileID: 161200713}
   m_Layer: 6
   m_Name: Necromanger
   m_TagString: Untagged
@@ -540,6 +541,25 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &161200713
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 161200707}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f65275e0ae2759547b47d56fb18e996e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+    name: Necromanger
+    sentences:
+    - 'NOOOOOOONNN !!! '
+    - "Comment est-ce possible....Comment ai-je pu \xEAtre vaincu par un enfant..."
+    - "On se retrouvera petit et ce jour-l\xE0 tu mourras de mes mains. "
+    characterPicture: {fileID: 21300000, guid: 702f5885134649547badb26d0c5bc1f0, type: 3}
 --- !u!1001 &173302182
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1324,6 +1344,67 @@ Transform:
   m_Father: {fileID: 894621759}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &357358232
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5073877193383881198, guid: c19b0bc0beafc494eadff41a5e1cc31d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5073877193640737554, guid: c19b0bc0beafc494eadff41a5e1cc31d, type: 3}
+      propertyPath: m_Name
+      value: DialogueManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 5073877193640737556, guid: c19b0bc0beafc494eadff41a5e1cc31d, type: 3}
+      propertyPath: m_RootOrder
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 5073877193640737556, guid: c19b0bc0beafc494eadff41a5e1cc31d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.049003456
+      objectReference: {fileID: 0}
+    - target: {fileID: 5073877193640737556, guid: c19b0bc0beafc494eadff41a5e1cc31d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.53997034
+      objectReference: {fileID: 0}
+    - target: {fileID: 5073877193640737556, guid: c19b0bc0beafc494eadff41a5e1cc31d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.26750377
+      objectReference: {fileID: 0}
+    - target: {fileID: 5073877193640737556, guid: c19b0bc0beafc494eadff41a5e1cc31d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5073877193640737556, guid: c19b0bc0beafc494eadff41a5e1cc31d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5073877193640737556, guid: c19b0bc0beafc494eadff41a5e1cc31d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5073877193640737556, guid: c19b0bc0beafc494eadff41a5e1cc31d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5073877193640737556, guid: c19b0bc0beafc494eadff41a5e1cc31d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5073877193640737556, guid: c19b0bc0beafc494eadff41a5e1cc31d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5073877193640737556, guid: c19b0bc0beafc494eadff41a5e1cc31d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c19b0bc0beafc494eadff41a5e1cc31d, type: 3}
 --- !u!1 &363351172
 GameObject:
   m_ObjectHideFlags: 0
@@ -4405,7 +4486,7 @@ Tilemap:
       m_AnimatedSprites:
       - {fileID: -478931431, guid: 62ccc0907646c5441bf509495628d0e4, type: 3}
       - {fileID: -155804599, guid: 62ccc0907646c5441bf509495628d0e4, type: 3}
-      m_AnimationSpeed: 1.5
+      m_AnimationSpeed: 1.5000001
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   - first: {x: -5, y: -5, z: 0}
@@ -4421,7 +4502,7 @@ Tilemap:
       m_AnimatedSprites:
       - {fileID: -478931431, guid: 62ccc0907646c5441bf509495628d0e4, type: 3}
       - {fileID: -155804599, guid: 62ccc0907646c5441bf509495628d0e4, type: 3}
-      m_AnimationSpeed: 1.5
+      m_AnimationSpeed: 1.5000001
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   - first: {x: -2, y: -3, z: 0}
@@ -4509,7 +4590,7 @@ Tilemap:
       m_AnimatedSprites:
       - {fileID: -478931431, guid: 62ccc0907646c5441bf509495628d0e4, type: 3}
       - {fileID: -155804599, guid: 62ccc0907646c5441bf509495628d0e4, type: 3}
-      m_AnimationSpeed: 1.5
+      m_AnimationSpeed: 1.5000001
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   - first: {x: 3, y: 1, z: 0}
@@ -5499,6 +5580,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1251321042}
   m_CullTransparentMesh: 1
+--- !u!1 &1251570408
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1251570409}
+  m_Layer: 0
+  m_Name: PosTrigger
+  m_TagString: Untagged
+  m_Icon: {fileID: 3306451490063965843, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1251570409
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1251570408}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1736136288}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1267417161
 GameObject:
   m_ObjectHideFlags: 0
@@ -8179,6 +8291,76 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1736136286
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1736136288}
+  - component: {fileID: 1736136287}
+  - component: {fileID: 1736136289}
+  m_Layer: 0
+  m_Name: BossDialogueTrigger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1736136287
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1736136286}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f65275e0ae2759547b47d56fb18e996e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+    name: Necromanger
+    sentences:
+    - "Ainsi tu as r\xE9ussi \xE0 arriver jusqu'\xE0 moi malgr\xE9 mes marionnettes
+      de chair...."
+    - "Ahaha...As-tu au moins de quoi m'attaquer ? Et m\xEAme si c'est le cas j'ai
+      toujours ce bouclier de zombies pour me prot\xE9ger."
+    - "Un pas de plus et je serai dans l'obligation de me d\xE9barasser de toi. Sois
+      sage, fait demi-tour et meurt par l'un de mes fid\xE8les serviteurs."
+    characterPicture: {fileID: 21300000, guid: 702f5885134649547badb26d0c5bc1f0, type: 3}
+--- !u!4 &1736136288
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1736136286}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 5, y: -1, z: 0.41400236}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1251570409}
+  m_Father: {fileID: 0}
+  m_RootOrder: 18
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1736136289
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1736136286}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 436ba411d58c3734d97a9dac242b1ac0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerPosition: {fileID: 1251570409}
+  dialogueTrigger: {fileID: 1736136287}
 --- !u!1 &1748639381
 GameObject:
   m_ObjectHideFlags: 0
