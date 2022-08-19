@@ -690,7 +690,7 @@ Transform:
   - {fileID: 929427896}
   - {fileID: 1392661829}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &697671035
 GameObject:
@@ -2529,7 +2529,7 @@ Tilemap:
       m_AnimatedSprites:
       - {fileID: -478931431, guid: 62ccc0907646c5441bf509495628d0e4, type: 3}
       - {fileID: -155804599, guid: 62ccc0907646c5441bf509495628d0e4, type: 3}
-      m_AnimationSpeed: 1.5
+      m_AnimationSpeed: 1.5000001
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   - first: {x: -2, y: -4, z: 0}
@@ -2585,7 +2585,7 @@ Tilemap:
       m_AnimatedSprites:
       - {fileID: -478931431, guid: 62ccc0907646c5441bf509495628d0e4, type: 3}
       - {fileID: -155804599, guid: 62ccc0907646c5441bf509495628d0e4, type: 3}
-      m_AnimationSpeed: 1.5
+      m_AnimationSpeed: 1.5000001
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   - first: {x: -1, y: -1, z: 0}
@@ -2601,7 +2601,7 @@ Tilemap:
       m_AnimatedSprites:
       - {fileID: -478931431, guid: 62ccc0907646c5441bf509495628d0e4, type: 3}
       - {fileID: -155804599, guid: 62ccc0907646c5441bf509495628d0e4, type: 3}
-      m_AnimationSpeed: 1.5
+      m_AnimationSpeed: 1.5000001
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   - first: {x: 2, y: -1, z: 0}
@@ -5027,7 +5027,7 @@ Transform:
   - {fileID: 2116109870}
   - {fileID: 824647229}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1445889901
 GameObject:
@@ -5062,7 +5062,7 @@ Transform:
   - {fileID: 1928860759}
   - {fileID: 1547910576}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1547910574
 PrefabInstance:
@@ -5455,6 +5455,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7135538145163133097, guid: c5d9ee6a5b6ad364e838fea6a6dff494, type: 3}
+      propertyPath: foreground
+      value: 
+      objectReference: {fileID: 1392661834}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c5d9ee6a5b6ad364e838fea6a6dff494, type: 3}
 --- !u!1 &1611497629
