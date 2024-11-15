@@ -10,5 +10,6 @@ A version 2 of my very first development in high school (in Processing) made thi
 
 # Screenshots
 ![image](https://github.com/user-attachments/assets/6850ae09-c830-401a-9894-6b8ee10d06aa)
+![Capture d'écran 2024-11-15 215111](https://github.com/user-attachments/assets/1ea3559f-cc57-4fc3-ba0d-091a768d40ce)
 ![Capture d'écran 2024-11-15 215139](https://github.com/user-attachments/assets/87a433fd-0576-4384-966e-367a08d8ecd2)
 ![Capture d'écran 2024-11-15 215154](https://github.com/user-attachments/assets/1267c403-5e97-4996-8963-dc3b93951560)
